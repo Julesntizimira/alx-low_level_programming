@@ -1,10 +1,17 @@
 #include <stdio.h>
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+
 int main(void)
 {
-char hello[100] = {"\"Programming is like
-building a multilingual puzzle\n"};
+    char v[100] = {"\"Programming is like building a multilingual puzzle\n"};
 
-puts(hello);
-return (0);
+    puts(v);
+
+    return (0);
 }
+
