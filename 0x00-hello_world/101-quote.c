@@ -1,8 +1,10 @@
 #include <unistd.h>
 /**
- *main - entry point
+ * main - entry point
  *
- * return 1 (failure)
+ * This program writes the phrase "and that piece of art is useful" - Dora Korpar, 2015-10-19
+ * to the standard error.
+ * The program returns 1.
  */
 int	main(void)
 {
