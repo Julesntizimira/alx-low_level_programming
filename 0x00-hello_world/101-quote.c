@@ -2,7 +2,10 @@
 /**
  * main - entry point
  *
- * This program writes the phrase "and that piece of art is useful" - Dora Korpar, 2015-10-19
+ * Return: Always 0 (Success)
+ *
+ * This program writes the phrase "and that piece of art is useful" 
+ * - Dora Korpar, 2015-10-19
  * to the standard error.
  * The program returns 1.
  */
