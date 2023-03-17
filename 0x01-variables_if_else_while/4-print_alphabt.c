@@ -7,12 +7,12 @@
 int main(void)
 {
 /*Declaration*/
-int i; 
+int i;
 for (i = 97; i <= 122; i++)
 {
-if (i == 101 )
+if (i == 101)
 continue;
-else if (i == 113 )
+else if (i == 113)
 continue;
 putchar(i);
 }
