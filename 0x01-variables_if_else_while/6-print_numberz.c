@@ -8,7 +8,7 @@ int main(void)
 {
 /*Declaration*/
 int i;
-for(i = 0; i <= 9; i++)
+for (i = 0; i <= 9; i++)
 {
 putchar(i + '0');
 }
