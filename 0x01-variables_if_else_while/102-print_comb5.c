@@ -18,7 +18,7 @@ for (z = 0; z <= 9; z++)
 {
 if ((k == z) && (i == j) && (i == 0))
 continue;
-if ((i == k ) && (k == z))
+if ((i == k) && (k == z))
 continue;
 putchar(i + '0');
 putchar(j + '0');
