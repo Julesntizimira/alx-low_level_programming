@@ -4,7 +4,7 @@
 *
 *Return: always 0 (success)
 */
-int main()
+int main(void)
 {
 int i, j;
 for (i = 0; i <= 99; i++)
@@ -27,8 +27,7 @@ putchar(num1 + '0');
 putchar(num2 + '0');
 putchar(' ');
 putchar(num3 + '0');
-putchar(num4 + '0'); 
-
+putchar(num4 + '0');
 if (i != 98 || j != 99)
 {
 putchar(',');
