@@ -8,6 +8,7 @@
 void jack_bauer(void)
 {
 	int i, j, k, z;
+
 	for (i = 0; i <= 2; i++)
 	{
 		for (j = 0; j < 10; j++)
@@ -31,5 +32,6 @@ void jack_bauer(void)
 			}
 		}
 	}
+	endloops:
 }
 
