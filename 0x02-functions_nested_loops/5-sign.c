@@ -12,19 +12,19 @@ void rint_sign(int n)
 	if (n	>	0)
 	{
                 return (1);
-		putchar(44);
-		putchar(43);
+		/*putchar(44);
+		putchar(43);*/
         }
         else if (n == 0)
 	{
 		return  (0);
-		putchar(44);
-		putchar(48);
+		/*putchar(44);
+		putchar(48);*/
 	}
 	else
 	{
 		return (-1);
-		putchar(44);
-		putchar(45);
+		/*putchar(44);
+		putchar(45);*/
 	}
 }
