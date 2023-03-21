@@ -9,6 +9,8 @@ void times_table(void)
 	for ( i = 0; i < 10; i++)
 	{ 
 		putchar(48);
+		if (i == 9)
+			break;
 		putchar(44);
 		putchar(' ');
 	}
@@ -24,9 +26,9 @@ void times_table(void)
         {
 		if ( (k % 2) != 0)
 			continue;
-                putchar(i + '0');
-                putchar(44);
-                putchar(' ');
+                _putchar(i + '0');
+                _putchar(44);
+                _putchar(' ');
         }
         putchar('\n');
 	for (z = 0; z <= 27; z++)
