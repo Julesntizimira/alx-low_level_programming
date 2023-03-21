@@ -20,8 +20,6 @@ int rint_sign(int n)
 		putchar(48);
 	}
 	else
-	{
-		return (-1);
-		putchar(45);
-	}
+	return (-1);
+	putchar(45);
 }
