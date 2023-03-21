@@ -18,6 +18,7 @@ int rint_sign(int n)
 	{
 		return  (0);
 		printchar(48);
+	}
 	else
 	{
 		return (-1);
