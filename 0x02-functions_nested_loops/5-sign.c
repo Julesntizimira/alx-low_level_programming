@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * rint_sign - checks for lowercase
+ * print_sign - checks for lowercase
  * @n: is an argument of type int
  * Return: 1 , 0, -1 respectively
  */
@@ -20,6 +20,6 @@ int print_sign(int n)
 	else
 	{
 		_putchar(45);
-		return(-1);
+		return (-1);
 	}
 }
