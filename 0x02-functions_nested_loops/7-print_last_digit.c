@@ -5,12 +5,15 @@
  * Return: return the remainder
  */
 
-int print_last_digit(int i)
+int print_last_digit(int n)
 {
+	int i;
 
-	if ((i < 10) && (i >= 0))
-	return i;
-	else
-	return (i % 10);
-
+	i = n % 10;
+	if (i < 0)
+	{
+		i = i * -1;
+	}
+	_putchar(i + '0');
+	return (i);
 }
