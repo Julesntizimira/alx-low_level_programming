@@ -30,6 +30,8 @@ int print_sign(int n) {
         magnitude /= 10;
     }
 
+    putchar('\n');
+
     return sign;
 }
 
