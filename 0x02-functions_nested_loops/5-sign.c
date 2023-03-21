@@ -9,7 +9,8 @@
 
 int print_sign(int n)
 {
-	int i, j, k;
+	int j, k;
+	signed int i;
 
 	i = +1;
 	j = 0;
@@ -17,7 +18,6 @@ int print_sign(int n)
 
 	if (n	>	0)
 	{
-		putchar(43);
 		return(+i);
         }
         else if (n == 0)
