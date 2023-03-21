@@ -14,4 +14,4 @@ int _putchar(char c);
 int _isalpha(int c);
 
 /*print_sign*/
-int print_sign(int n);
+void print_sign(int n);
