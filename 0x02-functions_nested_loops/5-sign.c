@@ -7,7 +7,7 @@
  * Returns: -1 and prints - if n is less than zeroe
  */
 
-int rint_sign(int n)
+int print_sign(int n)
 {
 	int i, j, k;
 
