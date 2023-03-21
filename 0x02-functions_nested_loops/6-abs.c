@@ -1,19 +1,18 @@
 #include <stdio.h>
 /**
  * _abs - checks for lowercase
- * @n: is an argument of type int
- * Returns: 1 and prints + if n is greater than zero
- * Returns: 0 and prints 0 if n is zero
- * Returns: -1 and prints - if n is less than zeroe
+ * @i: is an argument of type int
+ * Return: i if i is greater than zero and i*(-1) if i less than 0
  */
+
 int _abs(int i)
 {
-	if ( i >= 0)
+	if (i >= 0)
 	{
 		return (i);
 	}
 	else
 	{
-		return ( i * (-1));
+		return (i * (-1));
 	}
 }
