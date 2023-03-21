@@ -12,3 +12,6 @@ int _islower(int c);
 int _putchar(char c);
 /*checks for alphabet*/
 int _isalpha(int c);
+
+/*print_sign*/
+int print_sign(int n);
