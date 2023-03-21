@@ -2,7 +2,7 @@
 /**
  * times_table - checks for lowercase
  */
-void times_table(void);
+void times_table(void)
 {
 	int i, j, k, z, n, m, v, w, y, b;
 
