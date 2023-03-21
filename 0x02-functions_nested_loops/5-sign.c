@@ -6,16 +6,25 @@
  * Returns: 0 and prints 0 if n is zero
  * Returns: -1 and prints - if n is less than zeroe
  */
-
-int print_sign(int n) 
-{
+int print_sign(int n) {
+    int sign = 0;
     if (n > 0) {
-        putchar('+');
+        sign = 1;
     } else if (n == 0) {
         putchar('0');
+        return 0;
     } else {
+        sign = -1;
         putchar('-');
     }
-    putchar(abs(n) + '0');
-    return n >= 0 ? 1 : -1;
+    int magnitude = 0;
+    for (int i = n; i != 0; i /= 10) {
+        magnitude = (magnitude * 10) + (i % 10);
+    }
+    while (magnitude != 0) {
+        putchar((magnitude % 10) + '0');
+        magnitude /= 10;
+    }
+    return sign;
 }
+
