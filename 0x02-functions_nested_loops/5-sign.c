@@ -8,6 +8,9 @@
  */
 int print_sign(int n) {
     int sign;
+    int magnitude = 0;
+    int i;
+
     if (n > 0) {
         sign = 1;
     } else if (n == 0) {
@@ -17,15 +20,16 @@ int print_sign(int n) {
         sign = -1;
         putchar('-');
     }
-    int magnitude = 0;
-    int i;
+
     for (i = n; i != 0; i /= 10) {
         magnitude = (magnitude * 10) + (i % 10);
     }
+
     while (magnitude != 0) {
         putchar((magnitude % 10) + '0');
         magnitude /= 10;
     }
+
     return sign;
 }
 
