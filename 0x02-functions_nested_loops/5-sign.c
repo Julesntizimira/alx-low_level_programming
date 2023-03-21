@@ -11,7 +11,7 @@ int print_sign(int n)
 {
 	int i, j, k;
 
-	i = 1;
+	i = +1;
 	j = 0;
 	k= -1;
 
