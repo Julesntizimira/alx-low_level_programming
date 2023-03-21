@@ -17,7 +17,7 @@ int rint_sign(int n)
         }
         else if (n == 0)
 	{
-		return(0)
+		return(0);
 		putchar(48);
 	}
 	/*else
