@@ -9,21 +9,28 @@
 
 int rint_sign(int n)
 {
+	int i, j, k;
+
+	i = 1;
+	j = 0;
+	k= -1;
+
 	if (n	>	0)
 	{
-		return (1);
+		return (i);
 		putchar(43);
 		
         }
         else if (n == 0)
 	{
-		return(0);
+		return(j);
 		putchar(48);
 	}
-	/*else
-	{
+	else if
+	{       return (k);
 		putchar(45);
-	}*/
+	}
+
 	else 
 		return (0);
 }
