@@ -10,7 +10,8 @@
 int print_sign(int n)
 {
 	int j, k;
-	signed int i;
+
+       	int i;
 
 	i = +1;
 	j = 0;
@@ -18,14 +19,16 @@ int print_sign(int n)
 
 	if (n	>	0)
 	{
-		return(+i);
+		putchar(43)
+		return(i);
         }
         else if (n == 0)
 	{
+		putchar(48);
 		return(j);
 	}
 	else if (n < 0)
-	{       
+	{       putchar(45);
 		return (k);
 	}
 
