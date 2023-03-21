@@ -2,7 +2,7 @@
 #include "main.h"
 /**
  * print_last_digit - checks for lowercase
- * @i: is an argument of type int
+ * @n: is an argument of type int
  * Return: return the remainder
  */
 
