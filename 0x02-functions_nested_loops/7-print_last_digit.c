@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 /**
  * print_last_digit - checks for lowercase
  * @i: is an argument of type int
