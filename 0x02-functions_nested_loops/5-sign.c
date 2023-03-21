@@ -7,7 +7,7 @@
  * Returns: -1 and prints - if n is less than zeroe
  */
 
-void rint_sign(int n)
+int rint_sign(int n)
 {
 	if (n	>	0)
 	{
