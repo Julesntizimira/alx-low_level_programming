@@ -18,18 +18,15 @@ int rint_sign(int n)
 	if (n	>	0)
 	{
 		return (i);
-		putchar(43);
 		
         }
         else if (n == 0)
 	{
 		return(j);
-		putchar(48);
 	}
 	else if (n < 0)
 	{       
 		return (k);
-		putchar(45);
 	}
 
 	else 
