@@ -12,16 +12,16 @@ int rint_sign(int n)
 	if (n	>	0)
 	{
                 return (1);
-		printchar(43);
+		putchar(43);
         }
         if else (n == 0)
 	{
 		return  (0);
-		printchar(48);
+		putchar(48);
 	}
 	else
 	{
 		return (-1);
-		printchar(45);
+		putchar(45);
 	}
 }
