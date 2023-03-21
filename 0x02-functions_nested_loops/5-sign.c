@@ -20,7 +20,7 @@ int rint_sign(int n)
 		printchar(48);
 	else
 	{
-		return (-1)
+		return (-1);
 		printchar(45);
 	}
 }
