@@ -26,8 +26,9 @@ int rint_sign(int n)
 		return(j);
 		putchar(48);
 	}
-	else if
-	{       return (k);
+	else if (n < 0)
+	{       
+		return (k);
 		putchar(45);
 	}
 
