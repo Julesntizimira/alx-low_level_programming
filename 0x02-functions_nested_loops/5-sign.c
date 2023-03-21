@@ -9,23 +9,23 @@ int print_sign(int n)
 {
 	if (n > 0)
 	{
-		_putchhar('+');
-		_putchhar(',');
-		_putchhar(' ');
+		_putchar('+');
+		_putchar(',');
+		_putchar(' ');
 		return (1);
 	}
 	else if (n == 0)
 	{
-		_putchhar('0');
-		_putchhar(',');
-		_putchhar(' ');
+		_putchar('0');
+		_putchar(',');
+		_putchar(' ');
 		return (0);
 	}
 	else
 	{
-		_putchhar('-');
-		_putchhar(',');
-		_putchhar(' ');
+		_putchar('-');
+		_putchar(',');
+		_putchar(' ');
 		return(-1);
 	}
 }
