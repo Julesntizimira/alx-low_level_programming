@@ -7,7 +7,7 @@
  * Returns: -1 and prints - if n is less than zeroe
  */
 int print_sign(int n) {
-    int sign = 0;
+    int sign;
     if (n > 0) {
         sign = 1;
     } else if (n == 0) {
@@ -18,7 +18,8 @@ int print_sign(int n) {
         putchar('-');
     }
     int magnitude = 0;
-    for (int i = n; i != 0; i /= 10) {
+    int i;
+    for (i = n; i != 0; i /= 10) {
         magnitude = (magnitude * 10) + (i % 10);
     }
     while (magnitude != 0) {
