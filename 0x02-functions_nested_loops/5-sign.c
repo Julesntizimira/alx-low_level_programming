@@ -7,30 +7,22 @@
  * Returns: -1 and prints - if n is less than zeroe
  */
 
-int print_sign(int n)
+int print_sign(int n) 
 {
-	int j, k, i;
-
-	i = +1;
-	j = 0;
-	k= -1;
-
-	if (n	>	0)
-	{
-	
-		return (_putchar(i)));
-        }
-        else if (n == 0)
-	{
-		putchar(48);
-		return (j);
-	}
-	else if (n < 0)
-	{       
-		putchar(45);
-		return (k);
-	}
-
-	else 
-		return (0);
+    if (n > 0)
+    {
+        putchar('+');
+        return 1;
+    } else if (n == 0) 
+    {
+        putchar('0');
+        return 0;
+    }
+    else
+    {
+        putchar('-');
+        return -1;
+    }
 }
+
+
