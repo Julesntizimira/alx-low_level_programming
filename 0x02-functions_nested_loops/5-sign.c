@@ -24,4 +24,6 @@ int rint_sign(int n)
 	{
 		putchar(45);
 	}*/
+	else 
+		return (0);
 }
