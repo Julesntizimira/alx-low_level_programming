@@ -18,7 +18,7 @@ void jack_bauer(void)
 				 {
 					 if (((i == 2) && (j == 4)) && ((k == 0) && (z == 0)))
                                          {
-						 break;
+						 goto endloops;
 					 }
 					 _putchar(i + '0');
 					 _putchar(j + '0');
