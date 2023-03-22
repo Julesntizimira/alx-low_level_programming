@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "main.h"
+
 /*
- * print_times_table - printing table
+ * print_times_table - a void function
  * @n: int type
  */
 
