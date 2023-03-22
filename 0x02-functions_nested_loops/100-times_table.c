@@ -32,7 +32,7 @@ void print_times_table(int n)
 					if (i != 0)
 					{
 						if (i < 10)
-							printf("   "):
+							printf("   ");
 						else if ((i >= 10) && (i < 100))
 							printf("  ");
 						else
@@ -48,4 +48,4 @@ void print_times_table(int n)
 			putchar('\n');
 		}
 	 }
-}                                                                                                                                                                    52,1          Bot
+}                                                                                                                                                    
