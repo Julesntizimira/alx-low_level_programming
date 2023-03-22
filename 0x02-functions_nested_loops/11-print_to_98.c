@@ -16,8 +16,8 @@ void print_to_98(int n)
 			{
 				break;
 			}
-			_putchar(',');
-			_putchar(' ');
+			putchar(',');
+			putchar(' ');
 		}
         }
 	else if (n > 98)
@@ -28,9 +28,9 @@ void print_to_98(int n)
                         if (j == 98)
                         {
                                 break;
-                        }
-                        _putchar(',');
-                        _putchar(' ');
+			}
+                        putchar(',');
+                        putchar(' ');
 		}
 	}
         printf("\n");
