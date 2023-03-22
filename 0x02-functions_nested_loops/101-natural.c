@@ -21,7 +21,6 @@ void print_naturals(void)
 			j = j + i;
 		}
 	}
-	putchar('\n');
 	printf("%d", j);
 	putchar('\n');
 }
