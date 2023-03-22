@@ -10,7 +10,6 @@ void print_to_98(int n)
 
 	if (n >= 0)
 	{
-		int z, y;
 
 		z = n % 10;
 		y = n / 10;
@@ -41,9 +40,9 @@ void print_to_98(int n)
                 n = n * -1;
 		z = n % 10;
                 y = n / 10;
-                for (i = y; i > 0; i--)
+                for (i = y; i >= 0; i--)
                 {
-                        for (j < 10; j > 0; j--)
+                        for (j = 9; j >= 0; j--)
                         {
                                 if ((i = y) && (j > z))
                                 {
