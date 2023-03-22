@@ -6,11 +6,11 @@
 
 void print_to_98(int n)
 {
-	int i, j;
+	int i, j, z, y;
 
 	if (n >= 0)
 	{
-		int i, j,  z, y;
+		int z, y;
 
 		z = n % 10;
 		y = n / 10;
@@ -36,7 +36,7 @@ void print_to_98(int n)
 	}
 	if (n < 0)
 	{
-		int z, y, i, j; 
+
 
                 n = n * -1;
 		z = n % 10;
