@@ -12,13 +12,14 @@ void print_naturals(void)
 {
 	int i, j;
 
-	i = 1
+	i = 1;
 	while(i < 1024) 
 	{
 		if(((i % 3) == 0) || ((i % 5) == 0))
 		{
 			j = j+i;
 		}
+		i++;
 	}
 	printf("%d", j);
 	putchar('\n');
