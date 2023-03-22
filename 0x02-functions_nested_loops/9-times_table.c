@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 /**
  * times_table - checks for lowercase
  */
@@ -31,8 +32,9 @@ void times_table(void)
 				}
 				_putchar(z + '0');
 			}
-		_putchar('\n');
 		}
+		_putchar('\n');
+	
 	}
 
 }
