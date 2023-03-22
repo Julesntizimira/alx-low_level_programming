@@ -24,3 +24,9 @@ void print_naturals(void)
 	printf("%d", j);
 	putchar('\n');
 }
+int main(void)
+{
+	 print_naturals();
+	 return (0);
+
+}
