@@ -36,14 +36,14 @@ void print_to_98(int n)
 	}
 	if (n < 0)
 	{
-		int z, y, i, j, k, v; 
+		int z, y, i, j; 
 
                 n = n * -1;
 		z = n % 10;
                 y = n / 10;
-                for (i = y; i < 0; i--)
+                for (i = y; i > 0; i--)
                 {
-                        for (j < 10; j < 0; j--)
+                        for (j < 10; j > 0; j--)
                         {
                                 if ((i = y) && (j > z))
                                 {
@@ -53,11 +53,11 @@ void print_to_98(int n)
                                 {
                                         break;
                                 }
-
-                                        _putchar(i + '0');
-                                        _putchar(j + '0');
-                                        _putchar(',');
-                                        _putchar(' ');
+			        _putchar('-'); 
+				_putchar(i + '0');
+			       	_putchar(j + '0');
+			       	_putchar(',');
+			       	_putchar(' ');
                                 
                         }
                 }
