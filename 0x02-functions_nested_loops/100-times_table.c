@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include "main.h"
-
-/*
- * print_times_table - a void function
- * @n: int type
+/**
+ * print_times_table - printing times table
+ * @n: int parameter
  */
+
 void print_times_table(int n)
 {
 	int i, j, z;
