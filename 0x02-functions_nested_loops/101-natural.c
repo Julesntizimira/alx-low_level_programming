@@ -1,5 +1,17 @@
 #include <stdio.h>
 #include"main.h"
+
+/**
+ * main - starting point
+ *
+ * Return: always 0 (success)
+ */
+int main(void)
+{
+	print_naturals();
+	return  (0);
+}
+
 /**
  * print_naturals - print natural number
  */
@@ -19,14 +31,4 @@ void print_naturals(void)
 	}
 	printf("%d", j);
 	putchar('\n');
-}
-/**
- * main - starting point
- *
- * return: always return 0 (success)
- */
-int main(void)
-{
-       	print_naturals();
-	return (0);
 }
