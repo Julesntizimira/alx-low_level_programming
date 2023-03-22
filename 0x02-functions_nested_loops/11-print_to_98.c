@@ -6,7 +6,7 @@
  */
 void print_to_98(int n)
 {
-        int i;
+        int i, j;
 	if (n <= 98)
 	{
 		for (i = n; i <= 98; i++)
@@ -20,11 +20,11 @@ void print_to_98(int n)
 			_putchar(' ');
 		}
         }
-	if (n > 98)
+	else if (n > 98)
 	{
-		for (i = n; i >= 98; i--)
+		for (j = n; j >= 98; j--)
                 {
-                        printf("%d", i);
+                        printf("%d", j);
                         if (i == 98)
                         {
                                 break;
