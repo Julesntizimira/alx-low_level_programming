@@ -2,10 +2,6 @@
 #include"main.h"
 /**
  * print_naturals - print natural number
- *
- * main - void
- *
- * return: always 0 (success)
  */
 
 void print_naturals(void)
@@ -24,9 +20,13 @@ void print_naturals(void)
 	printf("%d", j);
 	putchar('\n');
 }
+/**
+ * main - starting point
+ *
+ * return: always return 0 (success)
+ */
 int main(void)
 {
-	 print_naturals();
-	 return (0);
-
+       	print_naturals();
+	return (0);
 }
