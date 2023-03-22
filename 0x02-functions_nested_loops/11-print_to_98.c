@@ -2,6 +2,7 @@
 #include <stdio.h>
 /**
  * print_to_98 - checks for lowercase
+ * @n: int parameter
  */
 void print_to_98(int n)
 {
