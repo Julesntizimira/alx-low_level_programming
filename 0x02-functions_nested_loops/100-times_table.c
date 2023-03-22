@@ -5,8 +5,6 @@
  * print_times_table - a void function
  * @n: int type
  */
-
-/*a function that prints table*/
 void print_times_table(int n)
 {
 	int i, j, z;
