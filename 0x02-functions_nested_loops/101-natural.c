@@ -12,18 +12,16 @@ void print_naturals(void)
 {
 	int i, j;
 
-	i = 1;
+	j = 0;
 
-	while (i < 1024)
+	for (i = 1; i < 1024; i++)
 	{
-		if(((i % 3) == 0) || ((i % 5) == 0))
+		if (((i % 3) == 0) || ((i % 5) == 0))
 		{
 			j = j + i;
 		}
-		i++;
-		if (j == 244293)
-			break;
 	}
+	putchar('\n');
 	printf("%d", j);
 	putchar('\n');
 }
