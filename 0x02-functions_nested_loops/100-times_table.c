@@ -2,7 +2,9 @@
 #include "main.h"
 /*
  * print_times_table - printing table
+ * @n: int type
  */
+
 void print_times_table(int n)
 {
 	int i, j, z;
