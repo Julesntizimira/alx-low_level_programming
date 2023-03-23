@@ -42,6 +42,8 @@ void Fizz_Buzz(void)
 		{
 			printf("%d", i);
 		}
+		if (i == 100)
+			break;
 		printf(" ");
 	}
 	printf("\n");
