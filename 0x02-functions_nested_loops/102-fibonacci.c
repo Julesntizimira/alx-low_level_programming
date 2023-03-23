@@ -29,5 +29,6 @@ void fib(void)
 		z = k;
 		k = w;
 	}
+	putchar(' ');
 	putchar('\n');
 }
