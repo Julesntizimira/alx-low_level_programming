@@ -29,9 +29,10 @@ int main(void)
 		{
 			printf("%d", i);
 		}
-		printf(" ");
+
 		if (i == 100)
 			break;
+		printf(" ");
 	}
 	printf("\n");
 
