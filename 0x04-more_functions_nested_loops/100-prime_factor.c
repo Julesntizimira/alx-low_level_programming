@@ -21,7 +21,7 @@ int main(void)
 			z = j / i;
 		}
 	}
-	printf("%lu \n ", z);
+	printf("%lu\n", z);
 
 
 	return (0);
