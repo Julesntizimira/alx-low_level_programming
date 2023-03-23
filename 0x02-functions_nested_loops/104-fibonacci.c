@@ -1,18 +1,36 @@
 #include <stdio.h>
+#include "main.h"
 
-int main() {
-    int i;
-    unsigned int a = 1, b = 2, c;
-    printf("%u, %u, ", a, b);
-    for (i = 3; i <= 98; i++) {
-        c = a + b;
-        printf("%u", c);
-        if (i < 98) {
-            printf(", ");
+/**
+ * main - void function
+ *
+ * Return: always return 0 (success)
+ */
+void fib(void);
+
+int main(void)
+{
+        fib();
+        return  (0);
+}
+/**
+ * fib - a void function
+ */
+void fib(void)
+{
+        unsigned long z, k, j, w
+                ;
+        z = 1;
+        k = 2;
+        for (j = 1; j <= 98; j++)
+        {
+                printf("%lu", z);
+                if (j == 98)
+                        break;
+                printf(", ");
+                w = z + k;
+                z = k;
+                k = w;
         }
-        a = b;
-        b = c;
-    }
-    printf("\n");
-    return 0;
+        putchar('\n');
 }
