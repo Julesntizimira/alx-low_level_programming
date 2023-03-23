@@ -18,13 +18,12 @@ int main(void)
  */
 void fib(void)
 {
-        unsigned long z, k, j, w
-                ;
+        unsigned long long z, k, j, w;
         z = 1;
         k = 2;
         for (j = 1; j <= 98; j++)
         {
-                printf("%lu", z);
+                printf("%llu", z);
                 if (j == 98)
                         break;
                 printf(", ");
