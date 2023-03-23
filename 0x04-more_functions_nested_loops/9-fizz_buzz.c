@@ -7,21 +7,8 @@
  * Return: 0 always success
  */
 
-void Fizz_Buzz(void);
-
 int main(void)
 {
-
-	Fizz_Buzz();
-	return (0);
-}
-
-/**
- * Fizz_Buzz - printing the upper
- */
-void Fizz_Buzz(void)
-{
-
 	int i;
 
 	for (i = 1; i <= 100; i++)
@@ -47,4 +34,6 @@ void Fizz_Buzz(void)
 			break;
 	}
 	printf("\n");
+
+	return (0);
 }
