@@ -23,7 +23,7 @@ int main(void)
 		}
 		i++;
 	}
-	printf("%lu \n ", i);
+	printf("%lu \n ", z);
 
 
 	return (0);
