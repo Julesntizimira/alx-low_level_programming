@@ -9,19 +9,17 @@
  */
 int main(void)
 {
-	unsigned long i, z, j, k;
+	unsigned long i, z, k, j;
 
 	j = 612852475143;
 	k = sqrt(612852475143);
 	z = 0;
-	i = 2;
-	while (i < j)
+	for (i = 1; i <= k; i++)
 	{
-		if ((k % i) == 0)
+		if (j % i == 0)
 		{
-			z = i;
+			z = j / i;
 		}
-		i++;
 	}
 	printf("%lu \n ", z);
 
