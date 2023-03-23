@@ -26,24 +26,22 @@ void Fizz_Buzz(void)
 
 	for (i = 1; i <= 100; i++)
 	{
-		if (((i % 3) == 0) && ((i % 5) == 0))
-		{
-			printf("FizzBuzz");
-		}
-		else if (((i % 3) == 0) && ((i % 5) != 0))
-		{
-			printf("Fizz");
-		}
-		else if (((i % 3) != 0) && ((i % 5) != 0))
+		if ((i % 3) != 0 && (i % 5) == 0)
 		{
 			printf("Buzz");
 		}
-		else
+		else if ((i % 3) == 0 && (i % 5) != 0)
+		{
+			printf("fizz");
+		}
+		else if ((i % 3) == 0 && (i % 5) == 0)
+		{
+			printf("fizzBuzz");
+		}
+		else if ((i % 3) != 0 && (i % 5) != 0)
 		{
 			printf("%d", i);
 		}
-		if (i == 100)
-			break;
 		printf(" ");
 	}
 	printf("\n");
