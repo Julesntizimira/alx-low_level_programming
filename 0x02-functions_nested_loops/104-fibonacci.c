@@ -18,7 +18,7 @@ int main(void)
  */
 void fib(void)
 {
-        unsigned long long z, k, j, w;
+        long long unsigned z, k, j, w;
         z = 1;
         k = 2;
         for (j = 1; j <= 98; j++)
