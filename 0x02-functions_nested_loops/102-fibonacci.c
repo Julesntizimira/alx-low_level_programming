@@ -8,19 +8,22 @@
  */
 void fib(void);
 
-int main (void)
+int main(void)
 {
 	fib();
-	return(0);
+	return	(0);
 }
+/**
+ * fib - a void function
+ */
 void fib(void)
 {
-	unsigned long j, k, z, w;
+	unsigned long z, k, j, w
+		;
 	z = 1;
 	k = 2;
-	for ( j = 1; j <= 50; j++)
+	for (j = 1; j <= 50; j++)
 	{
-	
 		printf("%lu", z);
 		if (j == 50)
 			break;
