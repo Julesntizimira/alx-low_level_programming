@@ -15,13 +15,14 @@ int main (void)
 }
 void fib(void)
 {
-	int j, k, z, w;
+	long j, k, z, w;
 	z = 1;
 	k = 2;
+	w = 0;
 	for ( j = 1; j <= 50; j++)
 	{
 	
-		printf("%d", z);
+		printf("%lo", z);
 		if (j == 50)
 			break;
 		printf(", ");
@@ -29,6 +30,5 @@ void fib(void)
 		z = k;
 		k = w;
 	}
-	putchar(' ');
 	putchar('\n');
 }
