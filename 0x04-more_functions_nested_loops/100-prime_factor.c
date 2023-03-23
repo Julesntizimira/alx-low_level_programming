@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+#include <math.h>
 
 /**
  * main - check the code
@@ -8,16 +9,15 @@
  */
 int main(void)
 {
-	unsigned long i, z, j;
+	unsigned long i, z, j, k;
 
 	j = 612852475143;
-
+	k = sqrt(612852475143);
 	z = 0;
-
 	i = 2;
 	while (i < j)
 	{
-		if ((j % i) == 0)
+		if ((k % i) == 0)
 		{
 			z = i;
 		}
