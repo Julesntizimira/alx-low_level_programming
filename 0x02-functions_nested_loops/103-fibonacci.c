@@ -17,7 +17,7 @@ int main(void)
  */
 void fibona(void)
 {
-	unsigned long z, k, y, j;
+	unsigned long z, w, k, y, j;
 
 	z = 1;
 	k = 2;
