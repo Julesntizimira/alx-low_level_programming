@@ -15,7 +15,7 @@ int main (void)
 }
 void fib(void)
 {
-	int i, j, k, z, w;
+	int j, k, z, w;
 	z = 1;
 	k = 2;
 	for ( j = 1; j <= 50; j++)
