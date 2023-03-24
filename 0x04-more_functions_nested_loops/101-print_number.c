@@ -9,7 +9,7 @@ void print_number(int n)
 	int i, p;
 
 	i = 0;
-	if ((n < 0) && (n >= -2147483648))
+	if ((n < 0) && (n > -2147483648))
 	{
 		_putchar('-');
 		n = n * -1;
