@@ -4,30 +4,25 @@
  * print_rev - print in reverse
  *
  * @s: input pointer
- */ 
+ */
 
 void print_rev(char *s)
 {
-	int i, j, z;
-	char c;
 
-	i = 0;
-	while(*s != '\0')
+	char *i = s;
+
+	while (*i != '\0')
 	{
 		i++;
-		s++;
 	}
-
-	z = i - 1;
-
-	for ( j = z; j >= 0; j--)
+	while (i >= s)
 	{
-		c = *(s + j);
+		char c;
+
+		c = *i;
 		_putchar(c);
+		i--;
 	}
-
-
-	
 
 	_putchar('\n');
 
