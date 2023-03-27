@@ -2,7 +2,7 @@
 # include <stdio.h>
 
 /**
- * reset_to_98 - reseting 
+ * reset_to_98 - reseting
  *
  * @*n: pointer parameter
  */
