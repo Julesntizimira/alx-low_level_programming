@@ -16,7 +16,7 @@ void puts2(char *str)
 	}
 	n--;
 
-	while (str < n)
+	while (str <= n)
 	{
 		char c;
 
