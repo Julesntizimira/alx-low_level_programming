@@ -1,19 +1,19 @@
 # include "main.h"
 # include <stdio.h>
 /**
- * swap_int - swaping values
- * @a: pointer
- * @b: pointer
+ * _strlen - swaping values
+ * @s: pointer string
+ * Return: i
  */
 
 int _strlen(char *s)
 {
-	int i;
-	
-	i = sizeof(*s) / sizeof(s[0]);
+	int i = 0;
 
-
+	while (*s != '\0')
+	{
+		i++;
+		s++;
+	}
 	return (i);
-
-
 }
