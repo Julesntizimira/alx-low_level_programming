@@ -8,7 +8,15 @@
 
 void puts2(char *str)
 {
-	while (*str != '\0')
+	char *n = str;
+
+	while (*n != '\0')
+	{
+		n++;
+	}
+	n--;
+
+	while (str < n)
 	{
 		char c;
 
