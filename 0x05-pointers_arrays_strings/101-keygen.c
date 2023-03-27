@@ -1,51 +1,59 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 #define PASSWORD_LENGTH 12
-#define WORDLIST_FILE "wordlist.txt"
 
 int main() {
     srand(time(NULL)); // Seed the random number generator with the current time
     
     char password[PASSWORD_LENGTH+1]; // Create an array to store the password (plus a null terminator)
-    FILE* wordlist_file = fopen(WORDLIST_FILE, "r"); // Open the wordlist file for reading
     
-    if (wordlist_file == NULL) {
-        printf("Error: Could not open wordlist file.\n");
-        return 1;
+    const char lowercase[] = "abcdefghijklmnopqrstuvwxyz";
+    const char uppercase[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const char digits[] = "0123456789";
+    const char special[] = "!@#$%^&*()_+{}[];:<>,.?/~`|";
+    
+    const int num_lowercase = strlen(lowercase);
+    const int num_uppercase = strlen(uppercase);
+    const int num_digits = strlen(digits);
+    const int num_special = strlen(special);
+    
+    int i = 0;
+    password[i++] = lowercase[rand() % num_lowercase];
+    password[i++] = uppercase[rand() % num_uppercase];
+    password[i++] = digits[rand() % num_digits];
+    password[i++] = special[rand() % num_special];
+    
+    while (i < PASSWORD_LENGTH) {
+        const int charset_index = rand() % 4;
+        const char* charset = NULL;
+        int num_charset = 0;
+        
+        switch (charset_index) {
+            case 0:
+                charset = lowercase;
+                num_charset = num_lowercase;
+                break;
+            case 1:
+                charset = uppercase;
+                num_charset = num_uppercase;
+                break;
+            case 2:
+                charset = digits;
+                num_charset = num_digits;
+                break;
+            case 3:
+                charset = special;
+                num_charset = num_special;
+                break;
+        }
+        
+        password[i++] = charset[rand() % num_charset];
     }
     
-    int num_words = 0;
-    char word[256];
-    
-    // Count the number of words in the wordlist file
-    while (fgets(word, sizeof(word), wordlist_file) != NULL) {
-        num_words++;
-    }
-    
-    // Generate a random number between 0 and num_words-1
-    int random_index = rand() % num_words;
-    
-    // Reset the file pointer to the beginning of the file
-    rewind(wordlist_file);
-    
-    // Select the word at the random index
-    for (int i = 0; i <= random_index; i++) {
-        fgets(word, sizeof(word), wordlist_file);
-    }
-    
-    // Remove the newline character at the end of the word
-    int len = strlen(word);
-    if (word[len-1] == '\n') {
-        word[len-1] = '\0';
-    }
-    
-    // Copy the word to the password array
-    strncpy(password, word, PASSWORD_LENGTH);
     password[PASSWORD_LENGTH] = '\0'; // Add a null terminator to the end of the password
-    
-    fclose(wordlist_file); // Close the wordlist file
     
     printf("%s", password); // Print the password
     
