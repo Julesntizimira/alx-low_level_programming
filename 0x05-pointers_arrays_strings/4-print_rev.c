@@ -17,15 +17,17 @@ void print_rev(char *s)
 		i++;
 		s++;
 	}
-	
-	z = i;
 
-	for ( j = (z-1); j <= 0; j--)
+	z = i - 1;
+
+	for ( j = z; j >= 0; j--)
 	{
-		c = s[j];
+		c = *(s + j);
 		_putchar(c);
-
 	}
+
+
+	
 
 	_putchar('\n');
 
