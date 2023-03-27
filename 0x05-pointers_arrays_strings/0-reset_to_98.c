@@ -4,7 +4,7 @@
 /**
  * reset_to_98 - reseting
  *
- * @*n: pointer parameter
+ * @n: pointer parameter
  */
 
 void reset_to_98(int *n)
