@@ -4,19 +4,24 @@
 
 #define PASSWORD_LENGTH 10
 
-int main(void) {
-  char password[PASSWORD_LENGTH + 1];
-  const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-  srand(time(NULL));
-
-  for (int i = 0; i < PASSWORD_LENGTH; i++) {
-    password[i] = charset[rand() % (sizeof(charset) - 1)];
-  }
-
-  password[PASSWORD_LENGTH] = '\0';
-
-  printf("Generated password: %s\n", password);
-
-  return 0;
+int main() {
+    char password[PASSWORD_LENGTH+1];
+    int i;
+    srand(time(NULL));
+    
+    for (i = 0; i < PASSWORD_LENGTH; i++) {
+        int r = rand() % 62;
+        if (r < 26) {
+            password[i] = 'A' + r;
+        } else if (r < 52) {
+            password[i] = 'a' + (r - 26);
+        } else {
+            password[i] = '0' + (r - 52);
+        }
+    }
+    password[PASSWORD_LENGTH] = '\0';
+    
+    printf("Your random password is: %s\n", password);
+    
+    return 0;
 }
