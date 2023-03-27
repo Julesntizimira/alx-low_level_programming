@@ -1,31 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
-#define PASSWORD_LENGTH 12
+#define PASSWORD_LENGTH 10
 
 int main() {
-    srand(time(NULL)); /* Seed the random number generator with the current time */
-    
-    char password[PASSWORD_LENGTH+1]; /* Create an array to store the password (plus a null terminator) */
-    int i;
-    
-    for (i = 0; i < PASSWORD_LENGTH; i++) {
-        int random = rand() % 62; /* Generate a random number between 0 and 61 */
-        
-        if (random < 10) {
-            password[i] = random + '0'; /* Use a digit */
-        } else if (random < 36) {
-            password[i] = random - 10 + 'A'; /* Use an uppercase letter */
-        } else {
-            password[i] = random - 36 + 'a'; /* Use a lowercase letter */
-        }
+    char password[PASSWORD_LENGTH + 1];
+    const char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}|:<>?-=[]\\;,./";
+
+    srand(time(NULL));
+    for (int i = 0; i < PASSWORD_LENGTH; i++) {
+        password[i] = charset[rand() % (sizeof(charset) - 1)];
     }
-    
-    password[PASSWORD_LENGTH] = '\0'; /* Add a null terminator to the end of the password */
-    
-    printf("%s", password); /* Print the password */
-    
+    password[PASSWORD_LENGTH] = '\0';
+
+    printf("Random password for 101-crackme: %s\n", password);
+
     return 0;
 }
 
