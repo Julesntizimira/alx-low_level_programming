@@ -4,24 +4,19 @@
 
 #define PASSWORD_LENGTH 10
 
-int main() {
-    char password[PASSWORD_LENGTH+1];
-    int i;
-    srand(time(NULL));
-    
-    for (i = 0; i < PASSWORD_LENGTH; i++) {
-        int r = rand() % 62;
-        if (r < 26) {
-            password[i] = 'A' + r;
-        } else if (r < 52) {
-            password[i] = 'a' + (r - 26);
-        } else {
-            password[i] = '0' + (r - 52);
-        }
+int main(void) {
+    char password[PASSWORD_LENGTH + 1];
+    const char valid_chars[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    srand(time(NULL)); // initialize random seed with current time
+
+    for (int i = 0; i < PASSWORD_LENGTH; i++) {
+        password[i] = valid_chars[rand() % (sizeof(valid_chars) - 1)]; // choose a random valid character
     }
-    password[PASSWORD_LENGTH] = '\0';
-    
-    printf("Your random password is: %s\n", password);
-    
+    password[PASSWORD_LENGTH] = '\0'; // add null terminator to end of password
+
+    printf("Random password: %s\n", password);
+
     return 0;
 }
+
