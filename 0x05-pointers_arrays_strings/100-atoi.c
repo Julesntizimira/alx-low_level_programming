@@ -7,33 +7,26 @@
  *
  * Return: dest
  */
-
 int _atoi(char *s)
 {
-    int result = 0;
-    int sign = 1;
+        int result = 0;
+        int sign = 1;
 
-    // Handle special case of minimum int value
-    if (strcmp(s, "-2147483648") == 0) {
-        return INT_MIN;
-    }
-
-    while (*s != '\0')
-    {
-        if (*s == '-')
+        while (*s != '\0')
         {
-            sign = -sign;
+                if (*s == '-')
+                {
+                        sign = -sign;
+                }
+                else if (*s >= '0' && *s <= '9')
+                {
+                        result = result * 10 + (*s - '0');
+                }
+                else if (result > 0)
+                {
+                        break;
+                }
+                s++;
         }
-        else if (*s >= '0' && *s <= '9')
-        {
-            result = result * 10 + (*s - '0');
-        }
-        else if (result > 0)
-        {
-            break;
-        }
-        s++;
-    }
-
-    return (sign * result);
+        return (sign * result);
 }
