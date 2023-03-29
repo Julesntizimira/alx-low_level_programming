@@ -12,7 +12,7 @@
 char *_strcat(char *dest, char *src)
 {
 	char *n = src;
-       	char *p = dest;
+	char *p = dest;
 	int i, z, j;
 
 	while (*n != '\0')
@@ -20,7 +20,7 @@ char *_strcat(char *dest, char *src)
 		n++;
 	}
 	i = n - src;
-       	while (*p != '\0')
+	while (*p != '\0')
 	{
 		p++;
 	}
