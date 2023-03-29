@@ -11,26 +11,31 @@ char *_strncpy(char *dest, char *src, int n)
 	char *p = src;
 	int z, j;
 
+	z = 0;
+
 	while (*p != '\0')
 	{
 		p++;
 	}
 	j = p - src;
 
-	if (n <= j)
+	if (n > j)
 	{
-		for (z = 0; z < n; z++)
+		while (z < n)
 		{
-			*(dest + z) = *(src + z);
+			if (z < j)
+				*(dest + z) = *(src + z);
+			else
+				*(dest + z) = '\0';
+			z++;
 		}
 	}
 	else
 	{
-		for (z = 0; z < n; z++)
+		while (z < n)
 		{
 			*(dest + z) = *(src + z);
-			if (z > j)
-				break;
+			z++;
 		}
 	}
 	return (dest);
