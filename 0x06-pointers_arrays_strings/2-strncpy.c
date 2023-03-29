@@ -26,7 +26,7 @@ char *_strncpy(char *dest, char *src, int n)
 
 	if (n > j)
 	{
-		while (z <= n)
+		while (z < n)
 		{
 			if (z > i)
 				break;
@@ -39,7 +39,7 @@ char *_strncpy(char *dest, char *src, int n)
 	}
 	else
 	{
-		while (z <= n)
+		while (z < n)
 		{
 			if (z > i)
 				break;
