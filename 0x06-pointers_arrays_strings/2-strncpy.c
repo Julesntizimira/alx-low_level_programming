@@ -30,7 +30,7 @@ char *_strncpy(char *dest, char *src, int n)
 		{
 			if (z > i)
 				break;
-			if (z < j)
+			if (z <= j)
 				*(dest + z) = *(src + z);
 			else
 				*(dest + z) = '\0';
