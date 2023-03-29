@@ -8,6 +8,7 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
+	char *v = dest;
 	char *p = src;
 	int z, j;
 
@@ -37,5 +38,6 @@ char *_strncpy(char *dest, char *src, int n)
 			z++;
 		}
 	}
-	return (dest);
+	v = dest;
+	return (v);
 }
