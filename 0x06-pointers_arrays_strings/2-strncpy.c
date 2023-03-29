@@ -8,11 +8,30 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-	int  i;
+	char *p = src;
+	int z, j;
 
-	for (i = 0; i < n; i++)
+	while (*p != '\0')
 	{
-		*(dest + i) = *(src + i);
+		p++;
+	}
+	j = p - src;
+
+	if (n <= j)
+	{
+		for (z = 0; z < n; z++)
+		{
+			*(dest + z) = *(src + z);
+		}
+	}
+	else
+	{
+		for (z = 0; z < n; z++)
+		{
+			*(dest + z) = *(src + z);
+			if (z > j)
+				break;
+		}
 	}
 	return (dest);
 }
