@@ -28,7 +28,7 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		while (z < n)
 		{
-			if (z > i)
+			if (z > (i - 1))
 				break;
 			if (z < j)
 				*(dest + z) = *(src + z);
@@ -41,7 +41,7 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		while (z < n)
 		{
-			if (z > i)
+			if (z > (i - 1))
 				break;
 			*(dest + z) = *(src + z);
 			z++;
