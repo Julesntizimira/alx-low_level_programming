@@ -11,23 +11,21 @@
 
 char *leet(char *s)
 {
-	char *result = s;
-	int i, k, j;
+	int i, j;
+	char n1[] = "aAeEoOtTlL";
+	char n2[] = "4433007711";
 
-	char replacements[] = {'4', '3', '0', '7', '1'};
-
-	for (i = 0, j = 0; s[i] != '\0'; i++, j++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		result[j] = s[i];
-		k = 0;
-		while (k < 5 && (s[i] != "aeotlAEOTL"[k]))
+		for (j = 0; n1[j] != '\0'; j++)
 		{
-			k++;
-		}
-		if (k < 5)
-		{
-			result[j] = replacements[k];
+			if (s[i] == n1[j])
+			{
+				s[i] = n2[j];
+			}
+
+
 		}
 	}
-	return (result);
+	return (s);
 }
