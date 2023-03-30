@@ -10,9 +10,9 @@
 char *rot13(char *str)
 {
 	int i, j;
-	
-	const char *s = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	const char *v = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	 char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	 char v[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 
 
@@ -21,15 +21,16 @@ char *rot13(char *str)
 
 		for (j = 0; s[j] != '\0'; j++)
 		{
-			if(str[i] == s[j])
+			if (str[i] == s[j])
 			{
 
 				str[i] = v[j];
+				break;
 
 
 			}
 		}
 	}
 
-	return(str);
+	return (str);
 }
