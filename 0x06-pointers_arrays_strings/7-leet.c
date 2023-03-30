@@ -10,21 +10,25 @@
 
 char *leet(char *s)
 {
-	int i;
+	char *v = s;
+	int i, k, j;
 
-	for (i = 0; s[i] != '\0'; i++)
+	char replacements[] = {'4', '3', '0', '7', '1'};
+
+	for (i = 0, j = 0; s[i] != '\0'; i++, j++)
 	{
-		if (s[i] == 'a' || s[i] == 'A')
-			s[i] = 52;
-		else if (s[i] == 'e' || s[i] == 'E')
-			s[i] = 51;
-		else if (s[i] == 'o' || s[i] == 'O')
-			s[i] = 48;
-		else if (s[i] == 't' || s[i] == 'T')
-			s[i] = 55;
-		else if (s[i] == 'l' || s[i] == 'L')
-			s[i] = 49;
+		v[j] = s[i];
+		k = 0;
+		while (k < 5 && (s[i] != "aeotlAEOTL"[k]))
+		{
+			k++;
+		}
+		if (k < 5)
+		{
+			v[j] = replacements[k];
+		}
 	}
-	return (s);
+	v[j] = '\0';
 
+	return (v);
 }
