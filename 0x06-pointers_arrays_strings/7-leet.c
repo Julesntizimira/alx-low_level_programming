@@ -28,7 +28,6 @@ char *leet(char *s)
 			v[j] = replacements[k];
 		}
 	}
-	v[j] = '\0';
 
 	return (v);
 }
