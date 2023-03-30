@@ -8,7 +8,7 @@
 
 void print_number(int n)
 {
-	unsigned int v;
+	unsigned int v, t;
 	int i, p;
 
 	if (n < 0)
@@ -25,6 +25,7 @@ void print_number(int n)
 	{
 		p = 1;
 		v = n;
+		t = n;
 		while (v >= 10)
 		{
 			p = p * 10;
@@ -32,12 +33,12 @@ void print_number(int n)
 		}
 		while (p >= 10)
 		{
-			i = n / p;
-			n %= p;
+			i = t / p;
+			t %= p;
 			_putchar(i + '0');
 			p /= 10;
 			if (p < 10)
-				_putchar(n + '0');
+				_putchar(t + '0');
 		}
 	}
 }
