@@ -32,11 +32,13 @@ char *_strncpy(char *dest, char *src, int n)
 	}
 	else
 	{
+		n--;
 		while (z < n)
 		{
 			*(dest + z) = *(src + z);
 			z++;
 		}
+
 	}
 	v = dest;
 	return (v);
