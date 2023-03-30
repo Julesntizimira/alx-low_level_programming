@@ -24,5 +24,5 @@ char *rot13(char *str)
 			str[i] = c - 13;
 		}
 	}
-	return str;
+	return (str);
 }
