@@ -36,6 +36,11 @@ void print_number(int n)
 			i = t / p;
 			t %= p;
 			_putchar(i + '0');
+			while (p >= 10 && t == 0)
+			{
+				_putchar(0 + '0');
+				p /= 10;
+			}
 			p /= 10;
 			if (p < 10)
 				_putchar(t + '0');
