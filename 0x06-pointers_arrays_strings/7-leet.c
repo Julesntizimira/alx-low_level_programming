@@ -8,16 +8,17 @@
  * Return: Always s
  */
 
+
 char *leet(char *s)
 {
-	char *v = s;
+	char *result = s;
 	int i, k, j;
 
 	char replacements[] = {'4', '3', '0', '7', '1'};
 
 	for (i = 0, j = 0; s[i] != '\0'; i++, j++)
 	{
-		v[j] = s[i];
+		result[j] = s[i];
 		k = 0;
 		while (k < 5 && (s[i] != "aeotlAEOTL"[k]))
 		{
@@ -25,9 +26,8 @@ char *leet(char *s)
 		}
 		if (k < 5)
 		{
-			v[j] = replacements[k];
+			result[j] = replacements[k];
 		}
 	}
-
-	return (v);
+	return (result);
 }
