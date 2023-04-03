@@ -10,13 +10,12 @@
 char *_strchr(char *s, char c)
 {
 	int i, j;
+	char *n = s;
 	
 	if (s == NULL)
 	{
 		return (NULL);
 	}
-	
-	char *n = s;
 	while (*n != '\0')
 	{
 		n++;
