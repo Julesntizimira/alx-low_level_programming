@@ -29,7 +29,7 @@ char *_strstr(char *haystack, char *needle)
 			}
 		}
 		if (k != z)
-			return (needle + i);
+			return (haystack + j);
 	}
 	return (NULL);
 }
