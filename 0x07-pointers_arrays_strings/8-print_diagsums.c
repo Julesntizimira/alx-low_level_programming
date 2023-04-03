@@ -1,17 +1,19 @@
 # include "main.h"
 # include <stdio.h>
 /**
- * print_diagsums - memset funct
- * @a: input
- * @size: input
+ * print_diagsums - prints the sum of the elements on the main diagonal and
+ * the secondary diagonal of a square matrix of integers
+ *
+ * @a: pointer to a 2D array of integers representing the square matrix
+ * @size: integer representing the size of the square matrix
+ * Return: void.
  */
 
-void print_diagsums(int *(a)[], int size)
+void print_diagsums(int *a, int size)
 {
-	int i, j, k, sum;
+	int i, j, k, sum1, sum2;
 
-	sum = 0;
-
+	sum1 = 0;
 	for (i = 0; i < size; i++)
 	{
 		for (j = 0; j < size; j++)
@@ -19,26 +21,27 @@ void print_diagsums(int *(a)[], int size)
 			if (i == j)
 			{
 				k = a[i][j];
-				sum = sum + k;
+				sum1 = sum1 + k;
 			}
 
 		}
 	}
-	printf("%d", sum);
+	printf("%d", sum1);
 	printf(", ");
-	sum = 0;
+	sum2 = 0;
+	size--;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i <= size; i++)
 	{
 		for (j = 0; j < size; j++)
 		{
-			if ((i + j) == (size - 1))
+			if ((i + j) == size)
 			{
 				k = a[i][j];
-				sum = sum + k;
+				sum2 = sum2 + k;
 			}
 		}
 	}
-	printf("%d", sum);
+	printf("%d", sum2);
 	printf("\n");
 }
