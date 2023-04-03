@@ -28,11 +28,11 @@ void print_diagsums(int *a[], int size)
 
 	sum2 = 0;
 	size--;
-	for (i = 0; i <= size; i++)
+	for (i = 0; i < size; i++)
 	{
-		for (j = 0; j <= size; j++)
+		for (j = 0; j < size; j++)
 		{
-			if ((i + j) == size)
+			if ((i + j) == size - 1)
 			{
 				sum2 = sum2 + a[i][j]
 			}
