@@ -17,8 +17,6 @@ char *_strchr(char *s, char c)
 		n++;
 		j++;
 	}
-	if (c == '\0')
-		return (s + j);
 
 	for (i = 0; i < j; i++)
 	{
