@@ -34,7 +34,7 @@ void print_diagsums(int *a[], int size)
 		{
 			if ((i + j) == size - 1)
 			{
-				sum2 = sum2 + a[i][j]
+				sum2 = sum2 + a[i][j];
 			}
 		}
 	}
