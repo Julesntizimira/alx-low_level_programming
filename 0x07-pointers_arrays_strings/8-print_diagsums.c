@@ -32,7 +32,7 @@ void print_diagsums(int *(a)[], int size)
 	{
 		for (j = 0; j < size; j++)
 		{
-			if ((i + j) == size)
+			if ((i + j) == (size - 1))
 			{
 				k = a[i][j];
 				sum = sum + k;
