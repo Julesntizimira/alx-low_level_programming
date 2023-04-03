@@ -9,7 +9,25 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i, j;
+	unsigned int i, j, z, k;
+	char *s = haystack;
+	char *v = needle;
+
+	z = 0;
+	k = 0;
+
+
+	while (*s != '\0')
+	{
+		s++;
+		z++;
+	}
+	while (*v != '\0')
+	{
+		v++;
+		k++;
+
+	}
 
 	if (haystack == NULL)
 	{
@@ -21,12 +39,12 @@ char *_strstr(char *haystack, char *needle)
 		return (haystack);
 	}
 
-	for (i = 0; needle[i] != '\0'; i++)
+	for (i = 0; i < k; i++)
 	{
 
-		for (j = 0; haystack[j] != '\0'; j++)
+		for (j = 0; j < z; j++)
 		{
-			if (needle[i] == haystack[j])
+			if (*(needle + i) == *(haystack + j))
 			{
 				return (haystack + j);
 
