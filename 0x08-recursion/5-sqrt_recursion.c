@@ -3,24 +3,35 @@
 /**
  * _sqrt_recursion - funct
  * @n: input
+ * @j: input
  * Return: int
+ *
  */
+
+int minus(int n, int j);
 
 int _sqrt_recursion(int n)
 {
-	int i;
+	if (n < 0)
+		return (-1);
 
-	if (n == 1)
-		return (1);
-
-	else if (n > 1)
-	{
-		for (i = 1; i <= n; i++)
-		{
-			if ((i * i) == n)
-				return (i);
-		}
-	}
-
-	return (-1);
+	return (minus(n, 1));
 }
+
+/**
+ * minus - funct
+ * @n: input
+ * @j: input
+ * Return: int
+ */
+
+int minus(int n, int j)
+{
+	if (j * j == n)
+		return (j);
+
+	if (j * j > n)
+		return (-1);
+	return (minus(n, j + 1));
+}
+
