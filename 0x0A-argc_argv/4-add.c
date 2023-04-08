@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 			v = argv[i];
 			for (j = 0; v[j] != '\0'; j++)
 			{
-				if (!(v[j] >= 48 || v[j] <= 57))
+				if ((v[j] < 48) || (v[j] > 57))
 				{
 					printf("Error\n");
 					return (1);
