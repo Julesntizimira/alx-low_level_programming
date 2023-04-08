@@ -9,7 +9,8 @@
 
 int main(int argc, char *argv[])
 {
-	int i;
+	int i, j;
+	char *v;
 	unsigned int add;
 
 	add = 0;
@@ -21,10 +22,14 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (!(atoi(argv[i])))
+			v = argv[i];
+			for (j = 0; v[j] != '\0'; j++)
 			{
-				printf("Error\n");
-				return (1);
+				if (!((v[j] >= 65 && v[j] <= 90) || (v[j] >= 97 && v[j] <= 122)))
+				{
+					printf("Error\n");
+					return (1);
+				}
 			}
 			add += atoi(argv[i]);
 		}
