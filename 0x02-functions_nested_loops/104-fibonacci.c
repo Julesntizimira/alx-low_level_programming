@@ -25,7 +25,7 @@ int main(void)
  */
 void fib(unsigned long int n, unsigned long int i, int j)
 {
-	if (j <= 98)
+	if (j < 98)
 	{
 		printf(", ");
 		printf("%lu", n);
