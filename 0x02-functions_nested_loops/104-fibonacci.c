@@ -1,34 +1,34 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
  * main - void function
- *
+ * @i: input
+ * @j: input
+ * @n: input
  * Return: always return 0 (success)
  */
-void fib(void);
+void fib(unsigned long int n, unsigned long int i, int j);
 
 int main(void)
 {
-	fib();
+	printf("%d, %d", 1, 2);
+	fib(5, 3, 3);
+	printf("\n");
+
 	return	(0);
 }
 /**
  * fib - a void function
+ * @i: input
+ * @j: input
+ * @n: input
  */
-void fib(void)
+void fib(unsigned long int n, unsigned long int i, int j)
 {
-	unsigned long	z, k, j, w;
-
-	z = 1;
-	k = 2;
-	for (j = 1; j <= 98; j++)
+	if (j <= 98)
 	{
-		printf("%lu", z);
 		printf(", ");
-		w = z + k;
-		z = k;
-		k = w;
+		printf("%lu", n);
+		fib(n + i, n, j + 1);
 	}
-	putchar('\n');
 }
