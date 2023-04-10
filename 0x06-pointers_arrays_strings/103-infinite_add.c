@@ -7,45 +7,67 @@
  * @size_r: in
  * Return: res
  */
-
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
-
 {
-	int len1 = 0, len2 = 0, i, max_len, carry = 0;
+	int len1, len2, sum, carry, j;
+	char *v = n1, *s = n2;
 
-	while (n1[len1])
+	sum = carry = len1 = len2 = j = 0;
+	while (*v != '\0')
 	{
+		v++;
 		len1++;
 	}
-	while (n2[len2])
+	while (*s != '\0')
 	{
+		s++;
 		len2++;
 	}
-	max_len = len1 > len2 ? len1 : len2;
-	if (max_len + 1 >= size_r)
+	len1 -= 1;
+	len2 -= 1;
+	while (len1 >= 0 || len2 >= 0 || carry)
 	{
-		return (0);
-	}
-	for (i = 1; i <= max_len; i++)
-	{
-		int digit1 = i <= len1 ? n1[len1 - i] - '0' : 0;
-
-		int digit2 = i <= len2 ? n2[len2 - i] - '0' : 0;
-
-		int sum = digit1 + digit2 + carry;
-
+		sum = carry;
+		if (len1 >= 0)
+		{
+			sum += (n1[len1] - '0');
+			len1--;
+		}
+		if (len2 >= 0)
+		{
+			sum += (n2[len2] - '0');
+			len2--;
+		}
+		if (j >= size_r - 1)
+			return (0);
 		carry = sum / 10;
+		r[j] = sum % 10 + '0';
+		j++;
+	}
+	r[j] = '\0';
+	return (_rev1(r, j));
+}
+/**
+ * _rev1 - funct
+ * @p: input
+ * @k: input
+ * Return: pointer
+ */
+char *_rev1(char *p, int k)
+{
+	int i, m;
 
-		r[max_len - i + 1] = sum % 10 + '0';
-	}
-	if (carry > 0)
+	i = 0;
+	m = 0;
+
+	k -= 1;
+	while (k > i)
 	{
-		r[0] = carry + '0';
-		r[max_len + 1] = '\0';
+		m = p[i];
+		p[i] = p[k];
+		p[k] = m;
+		i++;
+		k--;
 	}
-	else
-	{
-		r[max_len] = '\0';
-	}
-	return (r);
+	return (p);
 }
