@@ -9,12 +9,11 @@
 char **strtow(char *str)
 {
 
-	int count, word_len, i, j;
+	int count = word_len = i = j = 0;
 	char **words, *a, *z, *v;
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-	count = 0;
 	for (v = str; *v != '\0'; v++)
 	{
 		if (*v != ' ' && (*(v - 1) == ' ' || v == str))
