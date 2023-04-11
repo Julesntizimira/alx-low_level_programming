@@ -13,12 +13,13 @@ char *str_concat(char *s1, char *s2)
 	int len1, len2, len3, i;
 
 	len1 = len2 = i = 0;
-	if (v1 == NULL && v2 == NULL)
+	if (s1 == NULL && s2 == NULL)
 		return (NULL);
-	if (v1 == NULL && v2 != NULL)
-		return (v2);
-	if (v2 == NULL && v1 != NULL)
-		return (v1);
+	if (s1 == NULL && s2 != NULL)
+		return (s2);
+	if (s2 == NULL && s1 != NULL)
+		return (s1);
+
 	while (*v1 != '\0')
 	{
 		v1++;
