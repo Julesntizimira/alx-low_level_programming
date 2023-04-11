@@ -9,42 +9,56 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *ptr = NULL, *v1 = s1, *v2 = s2;
+	char *ptr = NULL;
 	int len1, len2, len3, i;
 
-	len1 = len2 = i = 0;
+	i = 0;
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);
-	if (s1 == NULL && s2 != NULL)
-		return (s2);
-	if (s2 == NULL && s1 != NULL)
-		return (s1);
-
-	while (*v1 != '\0')
-	{
-		v1++;
-		len1++;
-	}
-	while (*v2 != '\0')
-	{
-		v2++;
-		len2++;
-	}
-	len3 = len1 + len2 + 1;
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len3 = len1 + len2;
 	ptr = malloc(len3 * sizeof(char));
 	if (ptr == NULL)
 		return (NULL);
-	while (i < len1)
+	if (s1 != NULL)
 	{
-		ptr[i] = s1[i];
-		i++;
+		while (i < len1)
+		{
+			ptr[i] = s1[i];
+			i++;
+		}
 	}
 	i = 0;
-	while (i <= len2)
+	if (s2 != NULL)
 	{
-		ptr[len1 + i] = s2[i];
-		i++;
+		while (i < len2)
+		{
+			ptr[len1 + i] = s2[i];
+			i++;
+		}
 	}
+	ptr[len3] = '\0';
 	return (ptr);
 
+}
+/**
+ * _strlen - funct
+ * @s: input
+ * Return: int
+ */
+
+int _strlen(char *s)
+{
+	char *p = s;
+	int len = 0;
+
+	if (s == NULL)
+		return (0);
+	while (*p != '\0')
+	{
+		p++;
+		len++;
+	}
+	return (len);
 }
