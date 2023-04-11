@@ -15,9 +15,9 @@ char *str_concat(char *s1, char *s2)
 	len1 = len2 = i = 0;
 	if (v1 == NULL && v2 == NULL)
 		return (NULL);
-	if (v1 == NULL)
+	if (v1 == NULL && v2 != NULL)
 		return (v2);
-	if (v2 == NULL)
+	if (v2 == NULL && v1 != NULL)
 		return (v1);
 	while (*v1 != '\0')
 	{
