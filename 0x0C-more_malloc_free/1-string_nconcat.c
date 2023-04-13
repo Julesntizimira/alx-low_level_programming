@@ -20,7 +20,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);
-
 	if (n >= len2)
 	{
 		n = len2;
@@ -33,21 +32,24 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	if (s1 != NULL)
 	{
-		for (i = 0; i < len1; i++)
+		i = 0;
+		while (s1[i] != '\0')
 		{
 			ptr[i] = s1[i];
+			i++;
 		}
 	}
 	if (s2 != NULL)
 	{
-		for (j = 0; j < n; j++)
+		j = 0;
+		while (j < n)
 		{
 			ptr[len1 + j] = s2[j];
+			j++;
 		}
 	}
 	ptr[len3 - 1] = '\0';
 	return (ptr);
-
 }
 /**
  * _strlen - funct
