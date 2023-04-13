@@ -1,5 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h>
+# include "main.h"
 /**
  * get_number_of_digits - funct
  * @num: input
@@ -92,7 +93,14 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (98);
 	}
-	printf("%s\n", result);
+	i = 0;
+	while (result[i] != '\0')
+	{
+		_putchar(result[i]);
+		i++;
+	}
+	_putchar('\n');
+
 	free(result);
 	return (0);
 }
