@@ -11,8 +11,7 @@ void fib(unsigned long int n, unsigned long int i, int j);
 
 int main(void)
 {
-	printf("%d, %d", 1, 2);
-	fib(5, 3, 3);
+	fib(2, 1, 1);
 	printf("\n");
 
 	return	(0);
@@ -25,7 +24,7 @@ int main(void)
  */
 void fib(unsigned long int n, unsigned long int i, int j)
 {
-	if (j < 98)
+	if (j <= 98)
 	{
 		printf(", ");
 		printf("%lu", n);
