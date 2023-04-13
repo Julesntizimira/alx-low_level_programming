@@ -24,14 +24,17 @@ int get_number_of_digits(char *num)
  * @num2: input
  * Return: ptr
  */
+
 char *mul(char *num1, char *num2)
 {
 	int len1 = get_number_of_digits(num1);
 	int len2 = get_number_of_digits(num2);
 	int len3 = len1 + len2;
 	int i, j, k, carry, sum;
+	int zr = 0;
 
 	char *result = malloc(sizeof(char) * (len3 + 1));
+	char *final_result = result;
 
 	if (result == NULL)
 		return (NULL);
@@ -49,11 +52,18 @@ char *mul(char *num1, char *num2)
 		}
 		result[k] += carry;
 	}
-	while (*result == '0' && *(result + 1) != '\0')
+	while (result[zr] == '0' && zr < len3 - 1)
+		zr++;
+	if (zr > 0)
 	{
-		result++;
+		for (i = 0; i < len3 - zr; i++)
+		{
+			result[i] = result[i + zr];
+		}
+		for (i = len3 - zr; i < len3; i++)
+			result[i] = '\0';
 	}
-	return (result);
+	return (final_result);
 }
 /**
  * main - funct
@@ -93,14 +103,7 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (98);
 	}
-	i = 0;
-	while (result[i] != '\0')
-	{
-		_putchar(result[i]);
-		i++;
-	}
-	_putchar('\n');
-
+	printf("%s\n", result);
 	free(result);
 	return (0);
 }
