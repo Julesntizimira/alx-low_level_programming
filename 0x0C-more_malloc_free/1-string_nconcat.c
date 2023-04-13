@@ -31,13 +31,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < len1; i++)
+	if (s1 != NULL)
 	{
-		ptr[i] = s1[i];
+		for (i = 0; i < len1; i++)
+		{
+			ptr[i] = s1[i];
+		}
 	}
-	for (j = 0; j < n; j++)
+	if (s2 != NULL)
 	{
-		ptr[len1 + j] = s2[j];
+		for (j = 0; j < n; j++)
+		{
+			ptr[len1 + j] = s2[j];
+		}
 	}
 	ptr[len3 - 1] = '\0';
 	return (ptr);
