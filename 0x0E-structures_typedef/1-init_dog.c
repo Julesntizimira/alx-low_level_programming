@@ -1,5 +1,4 @@
 # include "dog.h"
-# include <stdlib.h>
 /**
  * init_dog - funct
  * @d: structure
@@ -8,7 +7,6 @@
  * @owner: member variable
  * Return: void pointer
  */
-
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	d->name = name;
