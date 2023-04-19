@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int a, b, c;
+	int a, b;
 	char *s = argv[2];
 
 	if (argc != 4)
@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 
-	c = get_op_func(s)(a, b);
-	printf("%d\n", c);
+	printf("%d\n", get_op_func(s)(a, b));
 	return (0);
 }
