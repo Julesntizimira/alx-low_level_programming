@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 
-	printf("%d\n",  get_op_func(s)(a, b));
+	if (a && b)
+	{
+		printf("%d\n",  get_op_func(s)(a, b));
+	}
 	return (0);
 }
