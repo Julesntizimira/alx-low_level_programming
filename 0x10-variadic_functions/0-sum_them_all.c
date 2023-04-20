@@ -3,6 +3,7 @@
 /**
  * sum_them_all - funct
  * @n: argment
+ * Return: int
  */
 int sum_them_all(const unsigned int n, ...)
 {
