@@ -1,52 +1,57 @@
-# include <stdio.h>
-# include <stdarg.h>
-
-struct format
+#include <stdio.h>
+#include <stdarg.h>
+/**
+ * print_all - funct
+ * @format: input
+ */
+void print_all(const char* const format, ...)
 {
-	char id;
-	char *type;
-}
-type[4];
-void print_all(const char * const format, ...)
-{
-	int i, j;
-
-	switch (expression)
-	{
-		case constant1:
-			break;
-		case constant2;
-		break;
-    .
-    .
-    .
-    default:
-      // default statements
-}
-	type[0] = {'c', "char"};
-	type[1] = {'i', "int"};
-	type[2] = {'f', "float"};
-	type[3] = {'s', "char *"};
-
+	const char* ptr = format;
 	va_list args;
-	va_start(args);
+	char c;
+	int i;
+	float f;
+	char* s;
+	int printed = 0;
+	va_start(args, format);
 
-	i = 0;
-	while(format[i] != '\0')
+	while (*ptr)
 	{
-		j = 0;
-		while (j < 4)
+		switch (*ptr)
 		{
-			if (format[i] == type[j].id)
-			{
-				va_arg(ars, type[j].type)
-			}
+			case 'c':
+				c = (char)va_arg(args, int);
+				printf("%c", c);
+				break;
+			case 'i':
+				i = va_arg(args, int);
+				printf("%d", i);
+				break;
+			case 'f':
+				f = (float)va_arg(args, double);
+				printf("%f", f);
+				break;
+			case 's':
+				s = va_arg(args, char*);
+				if (s == NULL)
+				{
+					printf("(nil)");
+				}
+				else
+				{
+					printf("%s", s);
+				}
+				break;
+			default:
+				break;
 		}
-	
-
+		ptr++;
+		if (*ptr && printed)
+		{
+			printf(", ");
+		}
+		printed = 1;
 	}
-	va_start(args, i);
-
-
-
+	printf("\n");
+	va_end(args);
 }
