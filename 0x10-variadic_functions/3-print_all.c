@@ -4,17 +4,16 @@
  * print_all - funct
  * @format: input
  */
-void print_all(const char* const format, ...)
+void print_all(const char * const format, ...)
 {
-	const char* ptr = format;
+	const char *ptr = format;
 	va_list args;
-	char c;
 	int i;
 	float f;
-	char* s;
+	char *s, c;
 	int printed = 0;
-	va_start(args, format);
 
+	va_start(args, format);
 	while (*ptr)
 	{
 		switch (*ptr)
@@ -32,24 +31,17 @@ void print_all(const char* const format, ...)
 				printf("%f", f);
 				break;
 			case 's':
-				s = va_arg(args, char*);
-				if (s == NULL)
-				{
+				s = va_arg(args, char *);
+				if (!s)
 					printf("(nil)");
-				}
-				else
-				{
-					printf("%s", s);
-				}
+				printf("%s", s);
 				break;
 			default:
 				break;
 		}
 		ptr++;
 		if (*ptr && printed)
-		{
 			printf(", ");
-		}
 		printed = 1;
 	}
 	printf("\n");
