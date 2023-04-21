@@ -11,17 +11,16 @@ int main(int argc, char *argv[])
 {
 	int a, b, c;
 	char *s = NULL;
+	char *v = argv[2];
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (!((*(argv[2]) == '-') ||
-				(*(argv[2]) == '+') ||
-				(*(argv[2]) == '/') ||
-				(*(argv[2]) == '*') ||
-				(*(argv[2]) == '%')))
+	if (*(v + 1) != '\0' || !(*v == '-' ||
+			       	*v == '+' || *v == '/' ||
+				*v == '*' || *v == '%'))
 	{
 		printf("Error\n");
 		exit(99);
