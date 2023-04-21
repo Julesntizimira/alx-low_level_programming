@@ -6,18 +6,17 @@
  */
 void print_all(const char * const format, ...)
 {
-	const char *ptr = format;
 	va_list args;
-	int i = 0;
+	int i, k = 0;
 	float f;
 	char *s, c, *v = "";
 
 	va_start(args, format);
 	if (format)
 	{
-		while (*ptr)
+		while (format[k])
 		{
-			switch (*ptr)
+			switch (format[k])
 			{
 				case 'c':
 					c = va_arg(args, int);
@@ -41,7 +40,7 @@ void print_all(const char * const format, ...)
 					break;
 			}
 			v = ", ";
-			ptr++;
+			k++;
 		}
 		printf("\n");
 		va_end(args);
