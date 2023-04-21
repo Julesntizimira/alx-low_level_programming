@@ -9,7 +9,7 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	int k = 0;
-	char *s, *v = "";
+	char *s;
 
 	va_start(args, format);
 	if (format)
@@ -19,25 +19,26 @@ void print_all(const char * const format, ...)
 			switch (format[k])
 			{
 				case 'c':
-					printf("%s%c", v, va_arg(args, int));
+					printf("%c", va_arg(args, int));
 					break;
 				case 'i':
-					printf("%s%d", v, va_arg(args, int));
+					printf("%d", va_arg(args, int));
 					break;
 				case 'f':
-					printf("%s%f", v, va_arg(args, double));
+					printf("%f", va_arg(args, double));
 					break;
 				case 's':
 					s = va_arg(args, char *);
 					if (!s)
 						printf("(nil)");
-					printf("%s%s", v, s);
+					printf("%s", s);
 					break;
 				default:
 					k++;
 					continue;
 			}
-			v = ", ";
+			if (format[k + 1] != '\0')
+				printf(", ");
 			k++;
 		}
 		printf("\n");
