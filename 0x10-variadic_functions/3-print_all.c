@@ -12,6 +12,10 @@ void print_all(const char * const format, ...)
 	char *s, *v = "";
 
 	va_start(args, format);
+	while (format == NULL)
+	{
+		return;
+	}
 	if (format)
 	{
 		while (format[k])
