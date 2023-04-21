@@ -8,7 +8,7 @@ void print_all(const char * const format, ...)
 {
 	const char *ptr = format;
 	va_list args;
-	int i;
+	int i = 0;
 	float f;
 	char *s, c, *v = "";
 
@@ -20,7 +20,7 @@ void print_all(const char * const format, ...)
 			switch (*ptr)
 			{
 				case 'c':
-					c = (char)va_arg(args, int);
+					c = va_arg(args, int);
 					printf("%s%c", v, c);
 					break;
 				case 'i':
@@ -28,7 +28,7 @@ void print_all(const char * const format, ...)
 					printf("%s%d", v, i);
 					break;
 				case 'f':
-					f = (float)va_arg(args, double);
+					f = va_arg(args, double);
 					printf("%s%f", v, f);
 					break;
 				case 's':
