@@ -3,6 +3,7 @@ section .data
     format db "%s\n", 0
 
 section .text
+    extern printf
     global main
 
 main:
@@ -14,4 +15,10 @@ main:
 
     ; exit program
     xor eax, eax
+    ret
+
+printf:
+    ; define printf function
+    ; implementation omitted for brevity
+    ; should follow standard calling convention for printf
     ret
