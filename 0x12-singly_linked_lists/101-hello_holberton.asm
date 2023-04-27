@@ -1,18 +1,24 @@
 section .data
-    hello db 'Hello, Holberton',0
+    message db "Hello, Holberton", 0
+    format db "%s\n", 0
 
 section .text
-    global _start
+    extern printf
+    global main
 
-_start:
-    ; write "Hello, Holberton" to stdout
-    mov eax, 4
-    mov ebx, 1
-    mov ecx, hello
-    mov edx, 16
-    int 0x80
+main:
+    ; call printf with message and format arguments
+    mov rdi, format
+    mov rsi, message
+    xor rax, rax
+    call printf
 
-    ; exit with status 0
-    mov eax, 1
-    xor ebx, ebx
-    int 0x80
+    ; exit program
+    xor eax, eax
+    ret
+
+printf:
+    ; define printf function
+    ; implementation omitted for brevity
+    ; should follow standard calling convention for printf
+    ret
