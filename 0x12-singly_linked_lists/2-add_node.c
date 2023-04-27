@@ -23,11 +23,10 @@ list_t *add_node(list_t **head, const char *str)
 		*head = ptr;
 		return (ptr);
 	}
-
 	else
 	{
-		ptr->next = (*head)->next;
-		(*head)->next = ptr;
+		ptr->next = *head;
+		*head = ptr;
 	}
 	return (ptr);
 }
