@@ -1,6 +1,10 @@
 # include "lists.h"
-
-
+/**
+ * delete_nodeint_at_index - funct
+ * @head: head node
+ * @index: index at which we need to delete the node
+ * Return: int
+ */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *ptr = NULL, *p = NULL;
@@ -8,24 +12,24 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	if (*head == NULL)
 		return (-1);
+
+	ptr = *head;
 	if (index == 0)
 	{
-		free(*head);
+		*head = (*head)->next;
+		free(ptr);
 		return (1);
 	}
-	else
+	while (count != index)
 	{
-		ptr = *head;
-		while(count != index)
-		{
-			if (ptr->next == NULL)
-				return (-1);
-			count++;
-			ptr = ptr->next;
-		}
+		if (ptr->next == NULL)
+			return (-1);
 		p = ptr;
-		ptr = p->next;
-		free(p);
+		ptr = ptr->next;
+		count++;
 	}
+	if (ptr->next)
+		p->next = ptr->next;
+	free(ptr);
 	return (1);
 }
