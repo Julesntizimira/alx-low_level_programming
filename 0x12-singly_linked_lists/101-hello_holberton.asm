@@ -1,24 +1,16 @@
-section .data
-    message db "Hello, Holberton", 0
-    format db "%s\n", 0
+SECTION .data
+msg:   db "Hello, Holberton", 0
+fmt:   db "%s", 10, 0
 
-section .text
+    SECTION .text
     extern printf
     global main
 
 main:
-    ; call printf with message and format arguments
-    mov rdi, format
-    mov rsi, message
-    xor rax, rax
+    mov esi, msg
+    mov edi, fmt
+    mov eax, 0
     call printf
 
-    ; exit program
-    xor eax, eax
-    ret
-
-printf:
-    ; define printf function
-    ; implementation omitted for brevity
-    ; should follow standard calling convention for printf
+    mov eax, 0
     ret
