@@ -32,6 +32,8 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *ptr = NULL, *temp = head;
 	size_t count = 0;
 
+	if (head == NULL)
+		return (0);
 	ptr = loopcheck(head);
 	if (ptr == NULL)
 	{
