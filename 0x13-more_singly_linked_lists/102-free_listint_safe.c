@@ -68,7 +68,7 @@ size_t free_listint_safe(listint_t **h)
 		} while (temp != ptr);
 	}
 	free(temp);
-	count++;
+	/*count++;*/
 	*h = NULL;
 	return (count);
 }
