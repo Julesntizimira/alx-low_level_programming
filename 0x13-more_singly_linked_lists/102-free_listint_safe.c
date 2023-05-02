@@ -1,76 +1,38 @@
 # include "lists.h"
-/**
- * loopch - function to check for loop
- * @head: input head node
- * Return: node where the loop has started
- */
-listint_t *loopch(listint_t *head)
-{
-	listint_t *slow = head;
-	listint_t *fast = head;
-	listint_t *temp = head;
 
-	while (slow && fast && fast->next)
-	{
-		slow = slow->next;
-		fast = fast->next->next;
-		if (fast == slow)
-		{
-			while (slow != temp)
-			{
-				slow = slow->next;
-				temp = temp->next;
-			}
-			return (temp);
-		}
-	}
-	return (NULL);
-}
 /**
- * free_listint_safe - function to free list
- * @h: input headnode
- * Return: Unsigned int count of node freed;
+ * free_listint_safe - a function that frees a linked list
+ * @head: pointer
+ * Return: number of nodes freed
  */
-size_t free_listint_safe(listint_t **h)
+size_t free_listint_safe(listint_t **head)
 {
-	listint_t *temp = *h, *ptr = NULL;
+	listint_t *temp = NULL;
 	size_t count = 0;
+	int len_diff;
 
-	if (!*h || !h)
+
+	if (!head || !*head)
 		return (0);
-	ptr = loopch(temp);
 
-	if (ptr == NULL)
+	while (*head)
 	{
-		while (temp->next != NULL)
+		len_diff = *head - (*head)->next;
+		if (len_diff > 0)
 		{
-			*h = temp->next;
-			free(temp);
+			temp = (*head)->next;
+			free(*head);
+			*head = temp;
 			count++;
-			temp = *h;
 		}
-		count++;
-	}
-	else
-	{
-		while (temp != ptr)
+		else
 		{
-			*h = temp->next;
-			free(temp);
+			free(*head);
+			*head = NULL;
 			count++;
-			temp = *h;
+			break;
 		}
-		*h = temp->next;
-		temp = *h;
-		do {
-			*h = temp->next;
-			free(temp);
-			count++;
-			temp = *h;
-		} while (temp != ptr);
 	}
-	free(temp);
-	count++;
-	*h = NULL;
+	*head = NULL;
 	return (count);
 }
