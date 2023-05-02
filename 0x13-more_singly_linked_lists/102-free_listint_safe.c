@@ -36,7 +36,7 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *temp = *h, *ptr = NULL;
 	size_t count = 0;
 
-	if (!*h && !h)
+	if (!*h || !h)
 		return (0);
 	ptr = loopch(temp);
 
