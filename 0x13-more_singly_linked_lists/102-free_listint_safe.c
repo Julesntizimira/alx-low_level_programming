@@ -28,7 +28,7 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *temp = *h, *ptr = NULL;
 	size_t count = 0;
 
-	if (h == NULL)
+	if (*h == NULL)
 		return (0);
 	ptr = loopch(temp);
 	if (ptr == NULL)
