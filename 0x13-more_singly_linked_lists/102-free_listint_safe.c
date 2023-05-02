@@ -33,7 +33,7 @@ size_t free_listint_safe(listint_t **h)
 	ptr = loopch(temp);
 	if (ptr == NULL)
 	{
-		while (temp->next != NULL)
+		while (temp != NULL)
 		{
 			*h = temp->next;
 			free(temp);
