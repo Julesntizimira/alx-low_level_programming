@@ -2,7 +2,7 @@
 /**
  * loopch - function to check for loop
  * @head: input head node
- * Return: node
+ * Return: node where the loop has started
  */
 listint_t *loopch(listint_t *head)
 {
@@ -49,6 +49,7 @@ size_t free_listint_safe(listint_t **h)
 			count++;
 			temp = *h;
 		}
+		count++;
 	}
 	else
 	{
