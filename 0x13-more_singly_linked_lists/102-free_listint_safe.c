@@ -8,13 +8,21 @@ listint_t *loopch(listint_t *head)
 {
 	listint_t *slow = head;
 	listint_t *fast = head;
+	listint_t *temp = head;
 
 	while (slow && fast && fast->next)
 	{
 		slow = slow->next;
 		fast = fast->next->next;
 		if (fast == slow)
-			return (fast);
+		{
+			while (slow != temp)
+			{
+				slow = slow->next;
+				temp = temp->next;
+			}
+			return (temp);
+		}
 	}
 	return (NULL);
 }
