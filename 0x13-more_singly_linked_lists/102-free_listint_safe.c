@@ -33,14 +33,13 @@ size_t free_listint_safe(listint_t **h)
 	ptr = loopch(temp);
 	if (ptr == NULL)
 	{
-		while (temp != NULL)
+		while (temp->next != NULL)
 		{
 			*h = temp->next;
 			free(temp);
 			count++;
 			temp = *h;
 		}
-		*h = NULL;
 	}
 	else
 	{
@@ -59,10 +58,9 @@ size_t free_listint_safe(listint_t **h)
 			count++;
 			temp = *h;
 		} while (temp != ptr);
-
-		free(temp);
-		count++;
-		*h = NULL;
 	}
+	free(temp);
+	count++;
+	*h = NULL;
 	return (count);
 }
