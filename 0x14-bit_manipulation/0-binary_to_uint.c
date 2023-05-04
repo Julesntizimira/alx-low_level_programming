@@ -44,7 +44,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	int i = 0, len = 0, j = 0, idx = 0;
 	unsigned int sum = 0;
-	char buff[33] = {'\0'};
+	char buff[1024] = {'\0'};
 	char temp;
 
 	if (b == NULL)
