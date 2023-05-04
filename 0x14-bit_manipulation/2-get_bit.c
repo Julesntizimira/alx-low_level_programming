@@ -11,6 +11,8 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned int idx = 0, i = 0;
 	int b = 0;
 
+	if (index == 0)
+		return (0);
 	do {
 		i = n / 2;
 		b = n % 2;
