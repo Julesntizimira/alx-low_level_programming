@@ -8,15 +8,17 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int i = 0, idx = 0;
-
-	char buff[1000000] = {'\0'};
+	unsigned int idx = 0, i = 0, b = 0;
 
 	do {
 		i = n / 2;
-		buff[idx++] = n % 2;
-		n =  i;
+		b = n % 2;
+		n = i;
+		if (idx == index)
+			return (b);
+		idx++;
 	} while (n > 0);
 
-	return (buff[index]);
+	return (-1);
+
 }
