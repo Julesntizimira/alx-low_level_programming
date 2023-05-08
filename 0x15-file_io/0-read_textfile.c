@@ -9,7 +9,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 
-	ssize_t j = 0, i = 0, k = 0;
+	ssize_t j = 0, i = 0;
 	ssize_t fd = 0;
 	char *ptr = NULL;
 
@@ -29,8 +29,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	close(fd);
 	free(ptr);
-	k = letters;
+/*	k = letters;
 	if (i != k || j != k)
-		return (0);
+		return (0);*/
 	return (i);
 }
