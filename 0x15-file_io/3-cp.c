@@ -21,12 +21,13 @@ int main(int argc, char *argv[])
 	fc = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	chmod(file_to, 0664);
 	z = read(fr, buff, 1024);
-	if (fr == -1 || z < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
+
 	do {
+		if (fr == -1 || z < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+			exit(98);
+		}
 		k = dprintf(fc, "%s", buff);
 		if (fc == -1 || k < 0)
 		{
