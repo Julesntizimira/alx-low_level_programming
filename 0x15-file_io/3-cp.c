@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
 	}
 	fr = open(file_from, O_RDONLY);
 	fc = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	chmod(file_to, 0664);
 	z = read(fr, buff, 1024);
 	do {
 		if (fr == -1 || z == -1)
