@@ -8,8 +8,8 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t j = 0;
-	ssize_t i = 0;
+
+	ssize_t j = 0, i = 0; k = 0;
 	ssize_t fd = open(filename, O_RDONLY);
 	char *ptr = NULL;
 
@@ -24,5 +24,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	free(ptr);
 	if (i == -1 || j == -1)
 		return (0);
+	k = letters;
+	if (i != k || j != k)
+		return (-1);
 	return (i);
 }
