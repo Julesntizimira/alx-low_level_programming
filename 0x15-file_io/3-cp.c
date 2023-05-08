@@ -8,8 +8,7 @@
  */
 int main(int argc, char *argv[])
 {
-	char *file_from = argv[1], *file_to = argv[2];
-	char buff[1024];
+	char *file_from = argv[1], *file_to = argv[2], buff[1024];
 	int fc, fr, i, j, z, k = 0;
 
 	if (argc != 3)
@@ -21,7 +20,6 @@ int main(int argc, char *argv[])
 	fc = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	chmod(file_to, 0664);
 	z = read(fr, buff, 1024);
-
 	do {
 		if (fr == -1 || z == -1)
 		{
@@ -34,7 +32,9 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
-	} while ((z = read(fr, buff, 1024) > 0));
+		z = read(fr, buff, 1024);
+		fc = open(file_to, O_WRONLY | O_APPEND);
+	} while (z > 0);
 	i = close(fr);
 	if (i == -1)
 	{
