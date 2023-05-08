@@ -18,22 +18,22 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	fr = open(file_from, O_RDONLY);
-	if (fr == -1)
+	fc = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	chmod(file_to, 0664);
+	z = read(fr, buff, 1024);
+	if (fr == -1 || z < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	fc = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	chmod(file_to, 0664);
-	while ((z = read(fr, buff, 1024) > 0))
-	{
+	do {
 		k = dprintf(fc, "%s", buff);
-	}
-	if (fc == -1 || k < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
-		exit(99);
-	}
+		if (fc == -1 || k < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+			exit(99);
+		}
+	} while ((z = read(fr, buff, 1024) > 0));
 	i = close(fr);
 	if (i == -1)
 	{
