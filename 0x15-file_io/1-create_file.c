@@ -1,0 +1,40 @@
+# include "main.h"
+/**
+ * _strlen - funct
+ * @s: string input
+ * Return: length
+ */
+int _strlen(char *s)
+{
+	int len = 0;
+
+	if (s == NULL)
+		return (0);
+	while (*s != '\0')
+	{
+		s++;
+		len++;
+	}
+	return (len);
+}
+/**
+ * create_file - function
+ * @filename: input
+ * @text_content: input
+ * Return: 1
+ */
+int create_file(const char *filename, char *text_content)
+{
+	int fd = 0, i;
+
+	if (filename == NULL)
+		return (-1);
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+	if (fd == -1)
+		return (-1);
+	i = write(fd, text_content, _strlen(text_content));
+	close(fd);
+	if (i == -1)
+		return (-1);
+	return (1);
+}
