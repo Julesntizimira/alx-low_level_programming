@@ -86,7 +86,8 @@ int main(int argc, char *argv[])
 		error_1(file_from);
 		exit(98);
 	}
-	fc = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
+	fc = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	chmod(file_to, 0664);
 	if (fc == -1)
 	{
 		error_2(file_to);
