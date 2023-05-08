@@ -188,23 +188,35 @@ void print_elf_type(uint16_t e_type)
 	printf("  Type:                              ");
 	switch (e_type)
 	{
-	case ET_NONE:
-		printf("NONE (Unknown type)");
-		break;
-	case ET_REL:
-		printf("REL (Relocatable file)");
-		break;
-	case ET_EXEC:
-		printf("EXEC (Executable file)");
-		break;
-	case ET_DYN:
-		printf("DYN (Shared object file)");
-		break;
-	case ET_CORE:
-		printf("CORE (Core file)");
-		break;
-	default:
-		printf("<unknown: 0x%x>", e_type);
+		case ET_NONE:
+			printf("NONE (Unknown type)");
+			break;
+		case ET_REL:
+			printf("REL (Relocatable file)");
+			break;
+		case ET_EXEC:
+			printf("EXEC (Executable file)");
+			break;
+		case ET_DYN:
+			printf("DYN (Shared object file)");
+			break;
+		case ET_CORE:
+			printf("CORE (Core file)");
+			break;
+		case ET_LOOS:
+			printf("LOOS (Operating system-specific)");
+			break;
+		case ET_HIOS:
+			printf("HIOS (Operating system-specific)");
+			break;
+		case ET_LOPROC:
+			printf("LOPROC (Processor-specific)");
+			break;
+		case ET_HIPROC:
+			printf("HIPROC (Processor-specific)");
+			break;
+		default:
+			printf("<unknown: 0x%x>", e_type);
 	}
 	printf("\n");
 }
