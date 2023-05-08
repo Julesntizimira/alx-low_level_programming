@@ -29,19 +29,19 @@ void print_entry_point_address(uint64_t);
  */
 void check_elf_magic(unsigned char *magic_nums)
 {
-    int index;
+	int index;
 
-    for (index = 0; index < 4; index++)
-    {
-        if (magic_nums[index] != 127 &&
-            magic_nums[index] != 'E' &&
-            magic_nums[index] != 'L' &&
-            magic_nums[index] != 'F')
-        {
-            fprintf(stderr, "Error: Not an ELF file\n");
-            exit(98);
-        }
-    }
+	for (index = 0; index < 4; index++)
+	{
+		if (magic_nums[index] != 127 &&
+				magic_nums[index] != 'E' &&
+				magic_nums[index] != 'L' &&
+				magic_nums[index] != 'F')
+		{
+			fprintf(stderr, "Error: Not an ELF file\n");
+			exit(98);
+		}
+	}
 }
 /**
  * print_elf_magic - Prints the magic numbers of an ELF header.
@@ -51,19 +51,17 @@ void check_elf_magic(unsigned char *magic_nums)
  */
 void print_elf_magic(unsigned char *magic_nums)
 {
-    int index;
+	int index;
 
-    printf("  Magic:   ");
-
-    for (index = 0; index < EI_NIDENT; index++)
-    {
-        printf("%02x", magic_nums[index]);
-
-        if (index == EI_NIDENT - 1)
-            printf("\n");
-        else
-            printf(" ");
-    }
+	printf("  Magic:   ");
+	for (index = 0; index < EI_NIDENT; index++)
+	{
+		printf("%02x", magic_nums[index]);
+		if (index == EI_NIDENT - 1)
+			printf("\n");
+		else
+			printf(" ");
+	}
 }
 /**
  * print_elf_class - Prints the ELF class of an ELF header.
@@ -73,23 +71,17 @@ void print_elf_magic(unsigned char *magic_nums)
  */
 void print_elf_class(unsigned char *magic_nums)
 {
-    printf("  Class:                             ");
+	printf("  Class:                             ");
 
-    if (magic_nums[EI_CLASS] == ELFCLASSNONE)
-        printf("Invalid class\n");
-    else if (magic_nums[EI_CLASS] == ELFCLASS32)
-        printf("ELF32\n");
-    else if (magic_nums[EI_CLASS] == ELFCLASS64)
-        printf("ELF64\n");
-    else
-        printf("<unknown: %x>\n", magic_nums[EI_CLASS]);
+	if (magic_nums[EI_CLASS] == ELFCLASSNONE)
+		printf("Invalid class\n");
+	else if (magic_nums[EI_CLASS] == ELFCLASS32)
+		printf("ELF32\n");
+	else if (magic_nums[EI_CLASS] == ELFCLASS64)
+		printf("ELF64\n");
+	else
+		printf("<unknown: %x>\n", magic_nums[EI_CLASS]);
 }
-/**
- * print_elf_data - Prints the byte order of an ELF header.
- * @e_ident: A pointer to an array containing the ELF magic numbers.
- *
- * Description: The byte order determines if the ELF file is little-endian or big-endian.
- */
 /**
  * print_elf_data - Prints the byte order of an ELF header.
  * @magic_nums: A pointer to an array containing the ELF magic numbers.
@@ -98,16 +90,17 @@ void print_elf_class(unsigned char *magic_nums)
  */
 void print_elf_data(unsigned char *magic_nums)
 {
+
 	printf("  Data:                              ");
 
-    if (magic_nums[EI_DATA] == ELFDATANONE)
-        printf("Invalid data encoding\n");
-    else if (magic_nums[EI_DATA] == ELFDATA2LSB)
-        printf("2's complement, little endian\n");
-    else if (magic_nums[EI_DATA] == ELFDATA2MSB)
-        printf("2's complement, big endian\n");
-    else
-        printf("<unknown: %x>\n", magic_nums[EI_DATA]);
+	if (magic_nums[EI_DATA] == ELFDATANONE)
+		printf("Invalid data encoding\n");
+	else if (magic_nums[EI_DATA] == ELFDATA2LSB)
+		printf("2's complement, little endian\n");
+	else if (magic_nums[EI_DATA] == ELFDATA2MSB)
+		printf("2's complement, big endian\n");
+	else
+		printf("<unknown: %x>\n", magic_nums[EI_DATA]);
 }
 /**
  * print_elf_version - Prints the ELF file version.
@@ -117,17 +110,18 @@ void print_elf_data(unsigned char *magic_nums)
  */
 void print_elf_version(unsigned char *magic_nums)
 {
-        unsigned char version = magic_nums[EI_VERSION];
 
-        printf("  Version:                           ");
-        if (version == EV_CURRENT)
-                printf("%d", version);
-        else
-        {
-                dprintf(STDERR_FILENO, "Error: Invalid ELF version\n");
-                exit(98);
-        }
-        printf("\n");
+	unsigned char version = magic_nums[EI_VERSION];
+
+	printf("  Version:                           ");
+	if (version == EV_CURRENT)
+		printf("%d", version);
+	else
+	{
+		dprintf(STDERR_FILENO, "Error: Invalid ELF version\n");
+		exit(98);
+	}
+	printf("\n");
 }
 /**
  * print_osabi - Prints the OS/ABI of the ELF file.
@@ -222,38 +216,43 @@ void print_entry_point_address(uint64_t e_entry)
 {
 	printf("  Entry point address:               0x%lx\n", e_entry);
 }
+/**
+ * main - funct
+ * @argc: input
+ * @argv: input
+ * Return: int
+ */
 int main(int argc, char **argv)
 {
-    int fd;
-    
-    Elf64_Ehdr header;
-    if (argc != 2)
-    {
-        dprintf(STDERR_FILENO, "Usage: %s <ELF file>\n", argv[0]);
-        exit(98);
-    }
-    fd = open(argv[1], O_RDONLY);
-    if (fd == -1)
-    {
-        dprintf(STDERR_FILENO, "Error: file error1\n");
-        exit(98);
-    }
+	int fd;
 
-    if (read(fd, &header, sizeof(header)) != sizeof(header))
-    {
-        dprintf(STDERR_FILENO, "Error: file error2\n");
-        exit(98);
-    }
-    check_elf_magic(header.e_ident);
-    print_elf_magic(header.e_ident);
-    print_elf_class(header.e_ident);
-    print_elf_data(header.e_ident);
-    print_elf_version(header.e_ident);
-    print_osabi(header.e_ident);
-    print_abi_version(header.e_ident);
-    print_elf_type(header.e_type);
-    print_entry_point_address(header.e_entry);
-    close(fd);
+	Elf64_Ehdr header;
+	if (argc != 2)
+	{
+		dprintf(STDERR_FILENO, "Usage: %s <ELF file>\n", argv[0]);
+		exit(98);
+	}
+	fd = open(argv[1], O_RDONLY);
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: file error1\n");
+		exit(98);
+	}
 
-    return (0);
+	if (read(fd, &header, sizeof(header)) != sizeof(header))
+	{
+		dprintf(STDERR_FILENO, "Error: file error2\n");
+		exit(98);
+	}
+	check_elf_magic(header.e_ident);
+	print_elf_magic(header.e_ident);
+	print_elf_class(header.e_ident);
+	print_elf_data(header.e_ident);
+	print_elf_version(header.e_ident);
+	print_osabi(header.e_ident);
+	print_abi_version(header.e_ident);
+	print_elf_type(header.e_type);
+	print_entry_point_address(header.e_entry);
+	close(fd);
+	return (0);
 }
