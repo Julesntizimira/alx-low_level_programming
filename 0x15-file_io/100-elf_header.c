@@ -19,7 +19,7 @@ void print_elf_data(unsigned char *);
 void print_elf_version(unsigned char *);
 void print_osabi(unsigned char *);
 void print_abi_version(unsigned char *);
-void print_elf_type(uint16_t );
+void print_elf_type(uint16_t);
 void print_entry_point_address(uint64_t);
 /**
  * check_elf_magic - Checks if a file is an ELF file by verifying its magic numbers.
@@ -115,7 +115,7 @@ void print_elf_version(unsigned char *magic_nums)
 
 	printf("  Version:                           ");
 	if (version == EV_CURRENT)
-		printf("%d", version);
+		printf("%d (current)", version);
 	else
 	{
 		dprintf(STDERR_FILENO, "Error: Invalid ELF version\n");
@@ -129,45 +129,44 @@ void print_elf_version(unsigned char *magic_nums)
  */
 void print_osabi(unsigned char *magic_nums)
 {
-	unsigned char osabi = magic_nums[EI_OSABI];
 
 	printf("  OS/ABI:                            ");
-	switch (osabi)
+
+	switch (magic_nums[EI_OSABI])
 	{
-	case ELFOSABI_SYSV:
-		printf("UNIX - System V");
+	case ELFOSABI_NONE:
+		printf("UNIX - System V\n");
 		break;
 	case ELFOSABI_HPUX:
-		printf("HP-UX");
+		printf("UNIX - HP-UX\n");
 		break;
 	case ELFOSABI_NETBSD:
-		printf("NetBSD");
+		printf("UNIX - NetBSD\n");
 		break;
 	case ELFOSABI_LINUX:
-		printf("Linux");
+		printf("UNIX - Linux\n");
 		break;
 	case ELFOSABI_SOLARIS:
-		printf("Sun Solaris");
-		break;
-	case ELFOSABI_AIX:
-		printf("IBM AIX");
+		printf("UNIX - Solaris\n");
 		break;
 	case ELFOSABI_IRIX:
-		printf("SGI Irix");
+		printf("UNIX - IRIX\n");
 		break;
 	case ELFOSABI_FREEBSD:
-		printf("FreeBSD");
+		printf("UNIX - FreeBSD\n");
 		break;
 	case ELFOSABI_TRU64:
-		printf("Compaq TRU64 UNIX");
+		printf("UNIX - TRU64\n");
 		break;
-	case ELFOSABI_ARM_AEABI:
-		printf("ARM EABI");
+	case ELFOSABI_ARM:
+		printf("ARM\n");
+		break;
+	case ELFOSABI_STANDALONE:
+		printf("Standalone App\n");
 		break;
 	default:
-		printf("<unknown: 0x%x>", osabi);
+		printf("<unknown: %x>\n", magic_nums[EI_OSABI]);
 	}
-	printf("\n");
 }
 /**
  * print_abi_version - Prints the ABI version of the ELF file.
@@ -188,37 +187,25 @@ void print_elf_type(uint16_t e_type)
 	printf("  Type:                              ");
 	switch (e_type)
 	{
-		case ET_NONE:
-			printf("NONE (Unknown type)");
-			break;
-		case ET_REL:
-			printf("REL (Relocatable file)");
-			break;
-		case ET_EXEC:
-			printf("EXEC (Executable file)");
-			break;
-		case ET_DYN:
-			printf("DYN (Shared object file)");
-			break;
-		case ET_CORE:
-			printf("CORE (Core file)");
-			break;
-		case ET_LOOS:
-			printf("LOOS (Operating system-specific)");
-			break;
-		case ET_HIOS:
-			printf("HIOS (Operating system-specific)");
-			break;
-		case ET_LOPROC:
-			printf("LOPROC (Processor-specific)");
-			break;
-		case ET_HIPROC:
-			printf("HIPROC (Processor-specific)");
-			break;
-		default:
-			printf("<unknown: 0x%x>", e_type);
+	case ET_NONE:
+		printf("NONE (None)\n");
+		break;
+	case ET_REL:
+		printf("REL (Relocatable file)\n");
+		break;
+	case ET_EXEC:
+		printf("EXEC (Executable file)\n");
+		break;
+	case ET_DYN:
+		printf("DYN (Shared object file)\n");
+		break;
+	case ET_CORE:
+		printf("CORE (Core file)\n");
+		break;
+	default:
+		printf("<unknown: %x>\n", e_type);
 	}
-	printf("\n");
+
 }
 /**
  * print_entry_point_address - Prints the entry point address of the ELF file.
@@ -226,7 +213,7 @@ void print_elf_type(uint16_t e_type)
  */
 void print_entry_point_address(uint64_t e_entry)
 {
-	printf("  Entry point address:               0x%lx\n", e_entry);
+	printf("  Entry point address:               %#lx\n", e_entry);
 }
 /**
  * main - funct
