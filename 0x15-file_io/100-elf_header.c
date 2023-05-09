@@ -13,6 +13,11 @@
 #include <elf.h>
 #include <stdint.h>
 #define ELF_ENDIANNESS ELFDATA2LSB
+#define EI_DATA   5
+#define ELFDATA2MSB 2
+#define ELFDATA2LSB 1
+#define EI_CLASS  4
+#define ELFCLASS32 1
 
 void check_elf_magic(unsigned char *);
 void print_elf_magic(unsigned char *);
@@ -210,21 +215,37 @@ void print_elf_type(uint16_t e_type)
 
 }
 /**
+ * Prints the entry point address of an ELF header.
+ *
+ * @param e_entry The address of the ELF entry point.
+ * @param e_ident A pointer to an array containing the ELF class.
+ */
+void print_entry(unsigned long int e_entry, unsigned char *e_ident)
+{
+	printf("  Entry point address:               ");
+	
+	if (e_ident[EI_DATA] == ELFDATA2MSB)
+	{
+		e_entry = ((e_entry << 8) & 0xFF00FF00) |
+			((e_entry >> 8) & 0x00FF00FF);
+		e_entry = ((e_entry << 16) & 0xFFFF0000) |
+			((e_entry >> 16) & 0x0000FFFF);
+		e_entry = (e_entry << 32) | (e_entry >> 32);
+	}
+	if (e_ident[EI_CLASS] == ELFCLASS32)
+		printf("%#x\n", (unsigned int)e_entry);
+	else
+		printf("%#lx\n", e_entry);
+}
+/**
  * print_entry_point_address - Prints the entry point address of the ELF file.
  * @e_entry: The entry point address value from the ELF header.
  */
 void print_entry_point_address(uint64_t e_entry)
 {
-	printf("  Entry point address:               ");
-	if (ELF_ENDIANNESS == ELFDATA2MSB)
-	{
-		e_entry = ((e_entry << 8) & 0xFF00FF00FF00FF00) |
-			((e_entry >> 8) & 0x00FF00FF00FF00FF);
-		e_entry = ((e_entry << 16) & 0xFFFF0000FFFF0000) |
-			((e_entry >> 16) & 0x0000FFFF0000FFFF);
-		e_entry = (e_entry << 32) | (e_entry >> 32);
-	}
-	printf("%#lx\n", e_entry);
+	unsigned char e_ident[EI_NIDENT] = {0x7F, 'E', 'L', 'F', ELFCLASS32, ELFDATA2LSB};
+	
+	print_entry(e_entry, e_ident);
 }
 /**
  * main - funct
