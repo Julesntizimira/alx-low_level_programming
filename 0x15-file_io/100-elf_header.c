@@ -11,6 +11,8 @@
 #include <sys/mman.h>
 #include <string.h>
 #include <elf.h>
+#include <stdint.h>
+#define ELF_ENDIANNESS ELFDATA2LSB
 
 void check_elf_magic(unsigned char *);
 void print_elf_magic(unsigned char *);
@@ -213,7 +215,16 @@ void print_elf_type(uint16_t e_type)
  */
 void print_entry_point_address(uint64_t e_entry)
 {
-	printf("  Entry point address:               %#lx\n", e_entry);
+	printf("  Entry point address:               ");
+	if (ELF_ENDIANNESS == ELFDATA2MSB)
+	{
+		e_entry = ((e_entry << 8) & 0xFF00FF00FF00FF00) |
+			((e_entry >> 8) & 0x00FF00FF00FF00FF);
+		e_entry = ((e_entry << 16) & 0xFFFF0000FFFF0000) |
+			((e_entry >> 16) & 0x0000FFFF0000FFFF);
+		e_entry = (e_entry << 32) | (e_entry >> 32);
+	}
+	printf("%#lx\n", e_entry);
 }
 /**
  * main - funct
