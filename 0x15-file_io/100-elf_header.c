@@ -224,7 +224,7 @@ void print_entry_point_address(uint64_t e_entry)
 			((e_entry >> 16) & 0x0000FFFF0000FFFF);
 		e_entry = (e_entry << 32) | (e_entry >> 32);
 	}
-	printf("%#lx\n", e_entry);
+	printf("%#x\n", e_entry);
 }
 /**
  * main - funct
