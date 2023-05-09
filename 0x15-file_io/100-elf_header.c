@@ -215,15 +215,15 @@ void print_elf_type(uint16_t e_type)
 
 }
 /**
- * Prints the entry point address of an ELF header.
+ * print_entry - point address of an ELF header.
  *
- * @param e_entry The address of the ELF entry point.
- * @param e_ident A pointer to an array containing the ELF class.
+ * @e_entry: The address of the ELF entry point.
+ * @e_ident: A pointer to an array containing the ELF class.
  */
 void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf("  Entry point address:               ");
-	
+
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
@@ -244,7 +244,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 void print_entry_point_address(uint64_t e_entry)
 {
 	unsigned char e_ident[EI_NIDENT] = {0x7F, 'E', 'L', 'F', ELFCLASS32, ELFDATA2LSB};
-	
+
 	print_entry(e_entry, e_ident);
 }
 /**
