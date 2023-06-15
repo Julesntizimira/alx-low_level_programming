@@ -24,13 +24,10 @@ int find_largest(char *username, int length)
 			current_char = username[largest_char];
 		largest_char += 1;
 	}
-
 	srand(current_char ^ 14);
 	rand_num = rand();
-
 	return (rand_num & 63);
 }
-
 /**
  * multiply_chars - multiplies each character of username
  *
@@ -47,7 +44,8 @@ int multiply_chars(char *username, int length)
 
 	while (multiplied_chars < length)
 	{
-		current_char = current_char + username[multiplied_chars] * username[multiplied_chars];
+		current_char = current_char +
+			username[multiplied_chars] * username[multiplied_chars];
 		multiplied_chars += 1;
 	}
 
