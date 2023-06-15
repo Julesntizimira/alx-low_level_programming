@@ -10,7 +10,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *tmp = NULL, *newnode = NULL;
 	unsigned int count = 0;
-
+	
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 	tmp = *h;
@@ -34,7 +34,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		count++;
 		tmp = tmp->next;
 	}
-	if (count == idx)
+	if (count == idx && tmp == NULL)
 	{
 		return (add_dnodeint_end(h, n));
 	}
