@@ -115,13 +115,13 @@ int main(int argc, char **argv)
 	}
 	keygen[2] = ((char *)alph)[(current_char ^ 85) & 63];
 	/* ----------- Function 4 ----------- */
-	keygen[3] = ((char *)alph)[find_largest(argv[1], len)];
+	keygen[3] = ((char *)alph)[find_largest(argv[1], length)];
 	/* ----------- f5 ----------- */
-	keygen[4] = ((char *)alph)[multiply_chars(argv[1], len)];
+	keygen[4] = ((char *)alph)[multiply_chars(argv[1], length)];
 	/* ----------- f6 ----------- */
 	keygen[5] = ((char *)alph)[generate_random_char(argv[1])];
 	keygen[6] = '\0';
-	for (ch = 0; keygen[current_char]; current_char++)
+	for (current_char = 0; keygen[current_char]; current_char++)
 		printf("%c", keygen[current_char]);
 	return (0);
-
+}
