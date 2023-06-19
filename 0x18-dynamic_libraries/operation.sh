@@ -1,5 +1,5 @@
-#include <python.h>
-
+#include <Python.h>
+#define div custom_div
 
 static PyObject* add(PyObject* self, PyObject* args)
 {
@@ -45,7 +45,7 @@ static PyObject* mod(PyObject* self, PyObject* args)
 	}
 	return (Py_BuildValue("i", (a % b)));
 }
-static PyObject* multiply(PyObject* self, PyObject* args)
+static PyObject* mul(PyObject* self, PyObject* args)
 {
 	int a, b;
 	
@@ -56,9 +56,9 @@ static PyObject* multiply(PyObject* self, PyObject* args)
 static PyMethodDef myMethods[] = {
 	{"add", add, METH_VARARGS, "Add two integers."},
 	{"sub", sub, METH_VARARGS, "Subtract two integers."},
-	{"div", divide, METH_VARARGS, "Divide two integers."},
-	{"mul", multiply, METH_VARARGS, "Multiply two integers."},
-	{"mod", module, METH_VARARGS, "Module two integers."},
+	{"div", div, METH_VARARGS, "Divide two integers."},
+	{"mul", mul, METH_VARARGS, "Multiply two integers."},
+	{"mod", mod, METH_VARARGS, "Module two integers."},
 	{NULL, NULL, 0, NULL}
 };
 static struct PyModuleDef myModule = {
