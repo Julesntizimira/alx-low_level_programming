@@ -1,5 +1,26 @@
 #include "hash_tables.h"
+/**
+ * _strcmp - compare strings
+ * @s1: first string
+ * @s2: second string
+ *
+ * Return: 0 if succeeded and -1 otherwise
+ */
+int _strcmp(const char *s1, const char *s2)
+{
+        int i = 0;
 
+        if (_strlen(s1) != _strlen(s2))
+                return (-1);
+
+        while (s1[i] != '\0')
+        {
+                if (s1[i] != s2[i])
+                        return (-1);
+                i++;
+        }
+        return (0);
+}
 /**
  * _strlen - computes the string length
  * @s: string input
