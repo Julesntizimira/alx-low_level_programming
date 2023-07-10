@@ -51,16 +51,19 @@ char *_strdup(const char *s)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	const unsigned char *k =  (const unsigned char *)key;
-	unsigned long int size = ht->size, index = key_index(k, size);
+	const unsigned char *k;
+	unsigned long int size = ht->size, index;
 	hash_node_t *node = NULL, *tmp = NULL;
 
+	if ((key == NULL) || (_strlen(key) == 0))
+		return (0);
+	k =  (const unsigned char *)key;
+	index = key_index(k, size);
 	node = malloc(sizeof(hash_node_t) * 1);
 	if (node == NULL)
 		return (0);
 	node->key = _strdup(key);
 	node->value = _strdup(value);
-
 	if (node->key == NULL || node->value == NULL)
 	{
 		if (node->key)
@@ -69,11 +72,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	}
 	node->next = NULL;
-
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = node;
 		return (1);
+	}
+	tmp = ht->array[index];
+	while (tmp != NULL)
+	{
+		if (_strcmp(key, tmp->key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = node->value;
+			free(node);
+			return (1);
+		}
+		tmp = tmp->next;
 	}
 	tmp = ht->array[index];
 	ht->array[index] = node;

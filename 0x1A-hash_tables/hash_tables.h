@@ -71,6 +71,7 @@ typedef struct shash_table_s
 	shash_node_t *stail;
 } shash_table_t;
 
+int _strcmp(const char *s1, const char *s2);
 int _strlen(const char *s);
 hash_table_t *hash_table_create(unsigned long int size);
 unsigned long int hash_djb2(const unsigned char *str);
