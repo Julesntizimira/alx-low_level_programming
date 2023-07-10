@@ -73,12 +73,13 @@ char *_strdup(const char *s)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	const unsigned char *k;
-	unsigned long int size = ht->size, index;
+	unsigned long int size, index;
 	hash_node_t *node = NULL, *tmp = NULL;
 
-	if ((key == NULL) || (_strlen(key) == 0) || (value == NULL))
+	if ((ht == NULL) || (key == NULL) || (_strlen(key) == 0) || (value == NULL))
 		return (0);
 	k =  (const unsigned char *)key;
+	size = ht->size;
 	index = key_index(k, size);
 	node = malloc(sizeof(hash_node_t) * 1);
 	if (node == NULL)
