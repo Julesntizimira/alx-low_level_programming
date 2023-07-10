@@ -8,18 +8,18 @@
  */
 int _strcmp(const char *s1, const char *s2)
 {
-        int i = 0;
-
-        if (_strlen(s1) != _strlen(s2))
-                return (-1);
-
-        while (s1[i] != '\0')
-        {
-                if (s1[i] != s2[i])
-                        return (-1);
-                i++;
-        }
-        return (0);
+	int i = 0;
+	
+	if (_strlen(s1) != _strlen(s2))
+		return (-1);
+	
+	while (s1[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return (-1);
+		i++;
+	}
+	return (0);
 }
 /**
  * _strlen - computes the string length
@@ -76,7 +76,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int size = ht->size, index;
 	hash_node_t *node = NULL, *tmp = NULL;
 
-	if ((key == NULL) || (_strlen(key) == 0))
+	if ((key == NULL) || (_strlen(key) == 0) || (value == NULL))
 		return (0);
 	k =  (const unsigned char *)key;
 	index = key_index(k, size);
