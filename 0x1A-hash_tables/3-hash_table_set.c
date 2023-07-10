@@ -63,6 +63,16 @@ char *_strdup(const char *s)
 	return (buff);
 }
 /**
+ * _free - free Node
+ * @node: input node
+ */
+void _free(hash_node_t *node)
+{
+	free(node->key);
+	free(node->value);
+	free(node);
+}
+/**
  * hash_table_set - adds an element to the hash table.
  * @key: is the key
  * @value: is the value
@@ -102,8 +112,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (_strcmp(key, tmp->key) == 0)
 		{
 			free(tmp->value);
-			tmp->value = node->value;
-			free(node);
+			tmp->value = _strdup(node->value);
+			_free(node);
 			return (1);
 		}
 		tmp = tmp->next;
