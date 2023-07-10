@@ -76,9 +76,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 	tmp = ht->array[index];
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = node;
-
+	ht->array[index] = node;
+	node->next = tmp;
 	return (1);
 }
