@@ -9,10 +9,10 @@
 int _strcmp(const char *s1, const char *s2)
 {
 	int i = 0;
-	
+
 	if (_strlen(s1) != _strlen(s2))
 		return (-1);
-	
+
 	while (s1[i] != '\0')
 	{
 		if (s1[i] != s2[i])
@@ -72,15 +72,12 @@ char *_strdup(const char *s)
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	const unsigned char *k;
-	unsigned long int size, index;
+	unsigned long int index;
 	hash_node_t *node = NULL, *tmp = NULL;
 
 	if ((ht == NULL) || (key == NULL) || (_strlen(key) == 0) || (value == NULL))
 		return (0);
-	k =  (const unsigned char *)key;
-	size = ht->size;
-	index = key_index(k, size);
+	index = key_index((const unsigned char *)key, ht->size);
 	node = malloc(sizeof(hash_node_t) * 1);
 	if (node == NULL)
 		return (0);
