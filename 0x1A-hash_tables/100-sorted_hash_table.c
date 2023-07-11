@@ -119,7 +119,7 @@ int node_compare(shash_node_t *node1, shash_node_t *node2)
 		if (s1[i] < s2[i])
 			return (1);
 		if (s1[i] > s2[i])
-                        return (-1);
+			return (-1);
 		i++;
 	}
 	return (0);
@@ -137,15 +137,13 @@ void node_placement(shash_table_t *ht, shash_node_t *node)
 	{
 		ht->shead = node;
 		ht->stail = node;
-		node->snext = NULL;
-		node->sprev = NULL;
 	}
 	else
 	{
 		tmp = ht->shead;
 		while (tmp != NULL)
 		{
-			if (node_compare(node, tmp) != -1)
+			if (node_compare(node, tmp) == 1)
 				break;
 			tmp = tmp->snext;
 		}
@@ -154,28 +152,23 @@ void node_placement(shash_table_t *ht, shash_node_t *node)
 			tmp = ht->stail;
 			tmp->snext = node;
 			node->sprev = tmp;
-			node->snext = NULL;
 			ht->stail = node;
+			return;
+		}
+		if (tmp == ht->shead)
+		{
+			node->snext = tmp;
+			tmp->sprev = node;
+			ht->shead = node;
 		}
 		else
 		{
-			if (tmp == ht->shead)
-			{
-				node->snext = tmp;
-				tmp->sprev = node;
-				node->sprev = NULL;
-				ht->shead = node;
-			}
-			else
-			{
-				curr = tmp->sprev;
-				node->snext = tmp;
-				tmp->sprev = node;
-				curr->snext = node;
-				node->sprev = curr;
-			}
+			curr = tmp->sprev;
+			node->snext = tmp;
+			tmp->sprev = node;
+			curr->snext = node;
+			node->sprev = curr;
 		}
-
 	}
 }
 /**
@@ -183,7 +176,7 @@ void node_placement(shash_table_t *ht, shash_node_t *node)
  * @key: is the key
  * @value: is the value
  * Return: newly created node
- */ 
+ */
 shash_node_t *node_init(const char *key, const char *value)
 {
 	shash_node_t *node = NULL;
@@ -203,9 +196,9 @@ shash_node_t *node_init(const char *key, const char *value)
 	node->next = NULL;
 	node->snext = NULL;
 	node->sprev = NULL;
-	
+
 	return (node);
-	
+
 }
 /**
  * shash_table_set - adds an element to the hash table.
