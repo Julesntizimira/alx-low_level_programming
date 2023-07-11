@@ -201,18 +201,20 @@ shash_node_t *node_init(const char *key, const char *value)
 	shash_node_t *node = malloc(sizeof(shash_node_t));
 
 	if (node == NULL)
-		return (0);
-	node->key = NULL;
-	node->value = NULL;
+		return (NULL);
 
 	node->key = _strdup(key);
-	node->value = _strdup(value);
-	if (node->key == NULL || node->value == NULL)
+	if (node->key == NULL)
 	{
-		if (node->key)
-			free(node->key);
 		free(node);
-		return (0);
+		return (NULL);
+	}
+	node->value = _strdup(value);
+	if (node->value == NULL)
+	{
+		free(node->key);
+		free(node);
+		return (NULL);
 	}
 	node->next = NULL;
 	node->snext = NULL;
