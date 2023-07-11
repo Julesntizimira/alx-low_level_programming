@@ -1,4 +1,5 @@
 #include "hash_tables.h"
+#include <string.h>
 /**
  * shash_table_create - create a new hash table
  * @size: table size
@@ -106,36 +107,6 @@ void _free(shash_node_t *node)
 	free(node);
 }
 /**
- * node_compare - compare two node to see which comes first
- * @node1: first node
- * @node2: second node
- * Return: 1, -1, 0 accordingly
- */
-int node_compare(shash_node_t *node1, shash_node_t *node2)
-{
-	int i = 0;
-	char *s1 = (char *)node1->key;
-	char *s2 = (char *)node2->key;
-
-	while (s1[i] != '\0')
-	{
-		char a, b;
-
-		if (s2[i] == '\0')
-			return (-1);
-		a = s1[i];
-		b = s2[i];
-		if (a < b)
-		{
-			return (1);
-		}
-		if (a > b)
-			return (-1);
-		i++;
-	}
-	return (1);
-}
-/**
  * node_placement - insert node in sorted linked list
  * @ht: the sorted hash table
  * @node: the node to be inserted
@@ -154,7 +125,7 @@ void node_placement(shash_table_t *ht, shash_node_t *node)
 		tmp = ht->shead;
 		while (tmp != NULL)
 		{
-			if (node_compare(node, tmp) == 1)
+			if (strcmp(node->key, tmp->key) < 1)
 				break;
 			tmp = tmp->snext;
 		}
