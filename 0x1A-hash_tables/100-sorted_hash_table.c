@@ -125,14 +125,6 @@ int node_compare(shash_node_t *node1, shash_node_t *node2)
 			return (-1);
 		a = s1[i];
 		b = s2[i];
-		/*if ((a >= 65 && a <= 90) && (b <= 122 && b >= 97))
-		{
-			b = b - 32;
-		}
-		if ((b >= 65 && b <= 90) && (a <= 122 && a >= 97))
-		{
-			a = a - 32;
-		}*/
 		if (a < b)
 		{
 			return (1);
@@ -141,7 +133,7 @@ int node_compare(shash_node_t *node1, shash_node_t *node2)
 			return (-1);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 /**
  * node_placement - insert node in sorted linked list
