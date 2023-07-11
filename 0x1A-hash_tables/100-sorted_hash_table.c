@@ -125,7 +125,7 @@ void node_placement(shash_table_t *ht, shash_node_t *node)
 		tmp = ht->shead;
 		while (tmp != NULL)
 		{
-			if (strcmp(node->key, tmp->key) < 1)
+			if (strcmp(node->key, tmp->key) < 0)
 				break;
 			tmp = tmp->snext;
 		}
