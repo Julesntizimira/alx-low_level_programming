@@ -275,7 +275,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	unsigned long int size, index;
 	shash_node_t *tmp = NULL;
 
-	if (ht == NULL || key == NULL || *key = '\0')
+	if (ht == NULL || key == NULL || *key == '\0')
 		return (NULL);
 	k = (const unsigned char *)key;
 	size = ht->size;
