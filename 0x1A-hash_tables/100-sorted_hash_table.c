@@ -6,9 +6,9 @@
  *
  * Return: return newly created hash table
  */
-
 shash_table_t *shash_table_create(unsigned long int size)
 {
+	unsigned long int i = 0;
 	shash_table_t *table = NULL;
 	shash_node_t **arr = NULL;
 
@@ -18,6 +18,11 @@ shash_table_t *shash_table_create(unsigned long int size)
 	arr = malloc(sizeof(shash_node_t *) * size);
 	if (arr == NULL)
 		return (NULL);
+	while (i < size)
+	{
+		arr[i] = NULL;
+		i++;
+	}
 	table->size = size;
 	table->array = arr;
 	table->shead = NULL;
@@ -147,7 +152,7 @@ void node_placement(shash_table_t *ht, shash_node_t *node)
 {
 	shash_node_t *tmp = NULL, *curr = NULL;
 
-	if (ht->shead == NULL)
+	if (!ht->shead)
 	{
 		ht->shead = node;
 		ht->stail = node;
@@ -193,11 +198,13 @@ void node_placement(shash_table_t *ht, shash_node_t *node)
  */
 shash_node_t *node_init(const char *key, const char *value)
 {
-	shash_node_t *node = NULL;
+	shash_node_t *node = malloc(sizeof(shash_node_t));
 
-	node = malloc(sizeof(shash_node_t) * 1);
 	if (node == NULL)
 		return (0);
+	node->key = NULL;
+	node->value = NULL;
+
 	node->key = _strdup(key);
 	node->value = _strdup(value);
 	if (node->key == NULL || node->value == NULL)
@@ -331,7 +338,6 @@ void shash_table_print_rev(const shash_table_t *ht)
 	}
 	printf("}\n");
 }
-#include "hash_tables.h"
 /**
  * shash_table_delete - delete the hash table
  * @ht: input hash table
