@@ -6,7 +6,7 @@ RM = rm
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-re: $(OBJ)
+re: oclean all
 
 oclean:
 	$(RM) -f $(wildcard *.o)
