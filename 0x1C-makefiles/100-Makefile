@@ -1,6 +1,5 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
-CC += $(CFLAGS)
 SRC = main.c school.c
 OBJ = $(patsubst %.c,%.o,$(SRC))
 NAME = school
