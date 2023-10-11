@@ -32,8 +32,9 @@ int advanced_binary(int *array, size_t size, int value)
 int ab_helper(int *array, size_t start, size_t end, int value)
 {
 	size_t i, mid;
-
-	printf("Searching in array: ");
+	
+	if (start < end + 1)
+		printf("Searching in array: ");
 	for (i = start; i <= end; i++)
 	{
 		printf("%d", array[i]);
