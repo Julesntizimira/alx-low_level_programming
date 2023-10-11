@@ -33,7 +33,7 @@ int ab_helper(int *array, size_t start, size_t end, int value)
 {
 	size_t i, mid;
 	
-	if (start < end + 1)
+	if (start <= end)
 		printf("Searching in array: ");
 	for (i = start; i <= end; i++)
 	{
@@ -46,7 +46,7 @@ int ab_helper(int *array, size_t start, size_t end, int value)
 	mid = (start + end) / 2;
 	if (array[mid] == value && start == mid)
 		return (mid);
-	if (start < end + 1)
+	if (start < end)
 	{
 		if (array[mid] == value)
 			return (ab_helper(array, start, mid, value));
