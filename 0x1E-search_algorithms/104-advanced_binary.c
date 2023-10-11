@@ -50,7 +50,7 @@ int ab_helper(int *array, size_t start, size_t end, int value)
 	}
 	else
 		return (-1);
-	if (start < end)
+	if (start < end + 1)
 	{
 		if (array[mid] == value)
 			return (ab_helper(array, start, mid, value));
