@@ -33,19 +33,23 @@ int ab_helper(int *array, size_t start, size_t end, int value)
 {
 	size_t i, mid;
 	
-	if (start <= end)
-		printf("Searching in array: ");
-	for (i = start; i <= end; i++)
+	if (start < end + 1)
 	{
-		printf("%d", array[i]);
-		if (i != end)
-			printf(", ");
-		else
-			printf("\n");
+		printf("Searching in array: ");
+		for (i = start; i <= end; i++)
+		{
+			printf("%d", array[i]);
+			if (i != end)
+				printf(", ");
+			else
+				printf("\n");
+		}
+		mid = (start + end) / 2;
+		if (array[mid] == value && start == mid)
+			return (mid);
 	}
-	mid = (start + end) / 2;
-	if (array[mid] == value && start == mid)
-		return (mid);
+	else
+		return (-1);
 	if (start < end)
 	{
 		if (array[mid] == value)
